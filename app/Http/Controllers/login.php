@@ -50,6 +50,9 @@ class login extends Controller
           }
         }else{
           return redirect()->route('login');
+
+        //   return view
         }
     }
 }
+
