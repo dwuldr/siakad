@@ -12,7 +12,8 @@
 */
 
 use App\Http\Controllers\UserController;
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('siakad/index');
 });
@@ -26,7 +27,7 @@ Route::get('/guru', function () {
 });
 
 Route::get('keluar',function(){
-    \Auth::logout();
+    Auth::logout();
     return redirect('login');
 });
 
@@ -46,6 +47,7 @@ Route::get('/reset/password/{id}', 'UserController@password')->name('reset.passw
 Route::patch('/reset/password/update/{id}', 'UserController@update_password')->name('reset.password.update')->middleware('guest');
 
 Route::group(['middleware' =>['auth']], function() {
+
     Route::prefix('admin')->group(function () {
         Route::get('/', function() {
             return view('admin/dashboard');
@@ -55,9 +57,12 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get('/', 'UserController@index')->name('admin/users')->middleware('admin');
             Route::get('/setting', 'UserController@create')->name('admin.users.create');
             Route::post('/setting', 'UserController@update')->name('admin.users.update');
-            Route::get('/profile', 'UserController@profile')->name('profile');
         });
     });
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::put('/profile/update', 'UserController@updateProfile');
+    Route::put('/profile/guru/update', 'UserController@updateProfileGuru');
+    Route::put('/profile/siswa/update', 'UserController@updateProfileSiswa');
 
     Route::middleware(['guru'])->group(function () {
         Route::get('/absen/harian', 'GuruController@absen')->name('absen.harian');
@@ -68,6 +73,10 @@ Route::group(['middleware' =>['auth']], function() {
         Route::resource('/sikap', 'SikapController');
         Route::get('/rapot/predikat', 'RapotController@predikat');
         Route::resource('/rapot', 'RapotController');
+
+        Route::get('/absen', 'AbsenController@index');
+        Route::get('/absen/list', 'AbsenController@listAbsen');
+        Route::get('/absen/list/add', 'AbsenController@listSiswa');
     });
 
     Route::middleware(['admin'])->group(function () {
@@ -97,7 +106,7 @@ Route::group(['middleware' =>['auth']], function() {
         });
 
 
-        Route::resource('/siswa', SiswaController::class);
+        Route::resource('/siswa', 'SiswaController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/siswa/tambah", ["uses" => "SiswaController@tambah", "as" => "tambah"]);
             Route::post("/siswa/simpan", ["uses" => "SiswaController@simpan", "as" => "simpan",]);
@@ -112,7 +121,7 @@ Route::group(['middleware' =>['auth']], function() {
         });
 
 
-        Route::resource('mapel', MapelController::class);
+        Route::resource('mapel', 'MapelController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/mapel/tambah", ["uses" => "MapelController@tambah", "as" => "tambah"]);
             Route::post("/mapel/simpan", ["uses" => "MapelController@simpan", "as" => "simpan",]);
@@ -126,7 +135,7 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/mapel/{idMapel}/update", "MapelController@restore");
         });
 
-        Route::resource('kelas', KelasController::class);
+        Route::resource('kelas','KelasController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/kelas/tambah", ["uses" => "KelasController@tambah", "as" => "tambah"]);
             Route::post("/kelas/simpan", ["uses" => "KelasController@simpan", "as" => "simpan",]);
@@ -155,7 +164,7 @@ Route::group(['middleware' =>['auth']], function() {
         });
 
 
-        Route::resource('pembayaran',PembayaranController::class);
+        Route::resource('pembayaran','PembayaranController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/pembayaran/tambah", ["uses" => "PembayaranController@tambah", "as" => "tambah"]);
             Route::post("/pembayaran/simpan", ["uses" => "PembayaranController@simpan", "as" => "simpan",]);
@@ -169,7 +178,7 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/pembayaran/{idpembayaran}/update", "PembayaranController@restore");
         });
 
-        Route::resource('nilai',NilaiController::class);
+        Route::resource('nilai','NilaiController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/nilai/tambah", ["uses" => "NilaiController@tambah", "as" => "tambah"]);
             Route::post("/nilai/simpan", ["uses" => "NilaiController@simpan", "as" => "simpan",]);
@@ -184,7 +193,7 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/nilai/{idnilai}/update", "NilaiController@restore");
         });
 
-        Route::resource('info', InfoController::class);
+        Route::resource('info', 'InfoController');
         Route::group(["prefix" => "o", "as" => "o."], function () {
             Route::get("/info/tambah", ["uses" => "InfoController@tambah", "as" => "tambah"]);
             Route::post("/info/simpan", ["uses" => "InfoController@simpan", "as" => "simpan",]);
@@ -197,6 +206,8 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/info/{idinfo}/delete", "InfoController@delete");
             Route::get("/info/{idinfo}/update", "InfoController@restore");
         });
+
+
     });
 });
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AbsenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('guru.absensi.jadwal');
     }
 
-    public function dashboard()
+    public function listAbsen()
     {
-        return view('admin/dashboard');
+        return view('guru.absensi.listAbsensi');
     }
+
+    public function listSiswa()
+    {
+        return view('guru.absensi.listSiswa');
+    }
+
 
     /**
      * Show the form for creating a new resource.
