@@ -22,10 +22,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-
         $guru = Guru::all();
         $users = DB::table('users')->get();
-
         $data = ['guru' => $guru, 'users' => $users];
         return view("admin.guru.index", compact('data'));
     }
@@ -34,8 +32,6 @@ class GuruController extends Controller
     {
         return view('guru/dashboard');
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -52,7 +48,7 @@ class GuruController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        $users = User::where('level', 'Guru')->get();
         return view("admin.guru.create", compact('users'));
 
     }
