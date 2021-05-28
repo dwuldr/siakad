@@ -68,7 +68,7 @@ Route::group(['middleware' =>['auth']], function() {
         Route::get('/absen/harian', 'GuruController@absen')->name('absen.harian');
         Route::post('/absen/simpan', 'GuruController@simpan')->name('absen.simpan');
         Route::get('/jadwal/guru', 'JadwalController@guru')->name('jadwal.guru');
-        Route::get('/nilai', 'NilaiController@index');
+        Route::get('/nilai', 'NilaiController@index')->name('nilai');
         Route::resource('/ulangan', 'UlanganController');
         Route::resource('/sikap', 'SikapController');
         Route::get('/rapot/predikat', 'RapotController@predikat');

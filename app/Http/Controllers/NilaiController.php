@@ -27,11 +27,7 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        $nilai = Nilai::all();
-        $mapel = DB::table('mapel')->get();
-
-        $data = ['nilai' => $nilai, 'mapel' => $mapel];
-        return view("guru.nilai.index", compact('data'));
+        return view('guru.nilai.index');
     }
 
     /**
