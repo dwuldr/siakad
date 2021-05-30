@@ -50,56 +50,53 @@ class LoginController extends Controller
         return 'username';
     }
 
-  //   function Login(Request $request){
+    //   function Login(Request $request){
 
-  //       $user_data= array(
-  //         'user' => $request->get('name'),
-  //         'password' => $request->get('password'),
-  //       );
-  //       $data = DB::select('SELECT * FROM users');
-  //       $datas = 0;
-  //       $ez = Hash::make($user_data['password']);
-  //       foreach($data as $dat){
-  //         if($user_data['user']==$dat->username ){
-  //           if (Hash::check($user_data['password'], $dat->password_2)) {
-  //             $datas=1;
-  //             $data_user=array(
-  //               'user' => $dat->username,
-  //               'password' => $dat->password_2,
-  //               'role' => $dat->level,
-  //               );
-  //           }
-  //         }
-  //       }
-  //       if($datas == 1){
-  //         if($data_user['role']=="Admin"){
-  //            return view('admin/dashboard',['user'=>$data_user['user']]);
-  //         }
-  //         else if($data_user['role']=="Guru"){
-  //            return view('guru/dashboard',['user'=>$data_user['user']]);
-  //         }
-  //         else if($data_user['role']=="Siswa"){
-  //            return view('siswa/dashboard',['user'=>$data_user['user']]);
-  //         }
-  //       }
-  //       else{
-  //         return redirect()->route('login');
-  //       }
-  //   }
+    //       $user_data= array(
+    //         'user' => $request->get('name'),
+    //         'password' => $request->get('password'),
+    //       );
+    //       $data = DB::select('SELECT * FROM users');
+    //       $datas = 0;
+    //       $ez = Hash::make($user_data['password']);
+    //       foreach($data as $dat){
+    //         if($user_data['user']==$dat->username ){
+    //           if (Hash::check($user_data['password'], $dat->password_2)) {
+    //             $datas=1;
+    //             $data_user=array(
+    //               'user' => $dat->username,
+    //               'password' => $dat->password_2,
+    //               'role' => $dat->level,
+    //               );
+    //           }
+    //         }
+    //       }
+    //       if($datas == 1){
+    //         if($data_user['role']=="Admin"){
+    //            return view('admin/dashboard',['user'=>$data_user['user']]);
+    //         }
+    //         else if($data_user['role']=="Guru"){
+    //            return view('guru/dashboard',['user'=>$data_user['user']]);
+    //         }
+    //         else if($data_user['role']=="Siswa"){
+    //            return view('siswa/dashboard',['user'=>$data_user['user']]);
+    //         }
+    //       }
+    //       else{
+    //         return redirect()->route('login');
+    //       }
+    //   }
 
-  //   public function logout()
-  // {
-  //   if (Auth::guard('admin')->check()) {
-  //     Auth::guard('admin')->logout();
-  //   } elseif (Auth::guard('guru')->check()) {
-  //     Auth::guard('guru')->logout();
-  //   }
-  //   elseif (Auth::guard('siswa')->check()) {
-  //       Auth::guard('siswa')->logout();
-  //     }
+    public function logout()
+    {
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        } elseif (Auth::guard('guru')->check()) {
+            Auth::guard('guru')->logout();
+        } elseif (Auth::guard('siswa')->check()) {
+            Auth::guard('siswa')->logout();
+        }
 
-  //   return redirect('/');
-
-  // }
-
+        return redirect('/');
+    }
 }

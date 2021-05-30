@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Absensi;
+use App\Jadwal;
 use Illuminate\Http\Request;
 
 class AbsenController extends Controller
@@ -13,16 +15,30 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        return view('guru.absensi.jadwal');
+        // return session('id');
+        $data = Jadwal::where('jadwal.idGuru', session('id'))
+            ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+            ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
+            ->select('mapel.nama_mapel', 'jadwal.*')
+            ->get();
+        // return $data;
+        return view('guru.absensi.jadwal', compact('data'));
     }
 
-    public function listAbsen()
+    public function listAbsen($id)
     {
-        return view('guru.absensi.listAbsensi');
+
+        // $data = Absensi::
+        return view('guru.absensi.listAbsensi', compact('data'));
     }
 
-    public function listSiswa()
+    public function listSiswa($id)
     {
+        $data = Jadwal::leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+        ->leftJoin('siswa', 'siswa.idKelas', 'kelas.idKelas')
+        ->where('jadwal.idJadwal', $id)
+        ->select('siswa.*', 'kelas.nama_kelas')
+        ->get();
         return view('guru.absensi.listSiswa');
     }
 

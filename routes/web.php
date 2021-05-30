@@ -28,20 +28,22 @@ Route::get('/guru', function () {
 
 Route::get('keluar',function(){
     Auth::logout();
-    return redirect('login');
+    return redirect('/login');
 });
 
 Auth::routes();
+Route::get('/login', 'login@loginPage');
 Route::post('/checklogin', 'login@Login');
 Route::get('/admin','AdminController@dashboard')->name('admin')->middleware('admin');
 Route::get('/guru','GuruController@dashboard_guru')->name('guru')->middleware(['auth', 'guru']);
 Route::get('/siswa','SiswaController@dashboard')->name('siswa')->middleware('siswa');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::get('/logout', 'LoginController@logout');
+Route::post('/daftar', 'Auth\RegisterController@register');
+Route::get('/register', function () {
+    return view('auth/register');
+});
 
-Route::get('/login/cek_email/json', 'UserController@cek_email');
-// Route::get('/login/cek_email/json', 'UserController@cek_email');
-Route::get('/login/cek_password/json', 'UserController@cek_password');
 Route::post('/cek-email', 'UserController@email')->name('cek-email')->middleware('guest');
 Route::get('/reset/password/{id}', 'UserController@password')->name('reset.password')->middleware('guest');
 Route::patch('/reset/password/update/{id}', 'UserController@update_password')->name('reset.password.update')->middleware('guest');
@@ -75,7 +77,7 @@ Route::group(['middleware' =>['auth']], function() {
         Route::resource('/rapot', 'RapotController');
 
         Route::get('/absen', 'AbsenController@index');
-        Route::get('/absen/list', 'AbsenController@listAbsen');
+        Route::get('/absen/list/{id}', 'AbsenController@listAbsen');
         Route::get('/absen/list/add', 'AbsenController@listSiswa');
     });
 
