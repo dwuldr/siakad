@@ -135,15 +135,15 @@ class UserController extends Controller
         $data = [];
         // return session('id');
         if (session('level') == 'Guru') {
-            $data = Guru::where('idUsers', session('id'))->first();
+            $data = Guru::where('idUsers', session('idUsers'))->first();
             // return $data;
             return view('user.profile', compact('data'));
         } else if(session('level') == 'Siswa'){
-            $data = Siswa::where('idUsers', session('id'))->first();
+            $data = Siswa::where('idUsers', session('idUsers'))->first();
             // return $data;
             return view('user.profile', compact('data'));
         }else{
-            $data = user::where('idUsers', session('id'))->first();
+            $data = user::where('idUsers', session('idUsers'))->first();
             // return $data;
             return view('user.profile', compact('data'));
         }

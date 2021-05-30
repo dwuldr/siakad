@@ -57,7 +57,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/absen">
+                <a class="nav-link" href="{{url('/absen')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Absensi Siswa</span></a>
             </li>

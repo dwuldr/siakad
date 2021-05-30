@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Siswa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -74,5 +76,46 @@ class RegisterController extends Controller
     protected function redirectTo()
     {
         return route('home');
+    }
+
+    public function register(Request $request)
+    {
+        // return $request;
+        $request->validate([
+            'nama_siswa' => 'required',
+            'telp' => 'required',
+            'jk' => 'required',
+            'tmp_lahir' => 'required',
+            'tgl_lahir' => 'required',
+            'alamat' => 'required',
+            'nama_ortu' => 'required',
+            'username' => 'required',
+            'password_2' => 'required',
+        ]);
+
+        try {
+            $user = User::create([
+                'username' => $request['username'],
+                'password_2' => bcrypt($request['password_2']),
+                'level' => 'Siswa',
+            ]);
+            $id = User::orderBy('idUsers', 'DESC')->first();
+            // return $id;
+            Siswa::create([
+                'idUsers' => $id->idUsers,
+                'nama_siswa' => $request['nama_siswa'],
+                'telp' => $request['telp'],
+                'tmp_lahir' => $request['tmp_lahir'],
+                'tgl_lahir' => $request['tgl_lahir'],
+                'jk' => $request['jk'],
+                'nama_ortu' => $request['nama_ortu'],
+                'alamat' => $request['alamat'],
+                'status' => 'Pendaftar',
+            ]);
+            return redirect('/register');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th;
+        }
     }
 }

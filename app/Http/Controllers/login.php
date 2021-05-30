@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Guru;
 use App\User;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\UserInterface;
 use App\Http\Controllers\Controller;
+use App\Siswa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -16,45 +18,43 @@ class login extends Controller
 {
     function Login(Request $request)
     {
-        $user_data = [
-            'user' => $request->get('username'),
-            'password' => $request->get('password'),
-        ];
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
-        $datas = DB::table('users')->get();
-        $status = false;
-        $password = Hash::make($user_data['password']);
-        foreach ($datas as $data) {
-            if ($user_data['user'] == $data->username) {
-                if (Hash::check($user_data['password'], $data->password_2)) {
-                    $status = true;
-                    $id = $data->idUsers;
-                    $data_user = [
-                        'user' => $data->username,
-                        'password' => $data->password_2,
-                        'role' => $data->level,
-                    ];
-                    session()->put('login', true);
-                    session()->put('username', $data->username);
-                    session()->put('level', $data->level);
-                    session()->put('id', $id);
-                    Auth::login(User::find($id));
+        $cek = User::where('username', $request['username'])->first();
+        if ($cek) {
+            if (password_verify($request->password, $cek->password_2)) {
+                session()->put('status', true);
+                session()->put('username', $cek->username);
+                session()->put('level', $cek->level);
+                session()->put('idUsers', $cek->idUsers);
+                Auth::login(User::find($cek->idUsers));
+                if ($cek->level == 'Admin') {
+                    session()->put('id', $cek->idUsers);
+                } else if ($cek->level == 'Guru') {
+                    $dt = Guru::where('idUsers', $cek->idUsers)->first();
+                    session()->put('id', $dt->idGuru);
+                } else if ($cek->level == 'Siswa') {
+                    $dt = Siswa::where('idUsers', $cek->idUsers)->first();
+                    session()->put('id', $dt->idSiswa);
                 }
-            }
-        }
 
-        if ($status == true) {
-            if ($data_user['role'] == "Admin") {
-                return view('admin/dashboard', ['user' => $data_user['user']]);
-            } else if ($data_user['role'] == "Guru") {
-                return view('guru/dashboard', ['user' => $data_user['user']]);
-            } else if ($data_user['role'] == "Siswa") {
-                return view('siswa/dashboard', ['user' => $data_user['user']]);
+
+                return redirect('/home');
+            } else {
+
+                return redirect('/login')->with('message', 'Password salah!');
             }
         } else {
-            return redirect()->route('login');
 
-            //   return view
+            return redirect('/login')->with('message', 'Username tidak ditemukan!');
         }
+    }
+
+    public function loginPage()
+    {
+        return view('auth.login');
     }
 }

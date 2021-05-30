@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">PPDB Online</a></li>
 
                     </ul>
                 </div>

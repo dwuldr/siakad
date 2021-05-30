@@ -16,17 +16,15 @@ class Guru
      * @param  \Closure  $next
      * @return mixed
      */
-     public function handle($request, Closure $next)
+    public function handle($request, Closure $next)
     {
 
-            if(Auth::user()->level=="Admin"){
-                return redirect()->route('admin');
-            }
-            else if(Auth::user()->level=="Guru"){
+        if (Auth::user()->level == "Admin") {
+            return redirect()->route('admin');
+        } else if (Auth::user()->level == "Guru") {
             return $next($request);
-            }
-            else if(Auth::user()->level=="Siswa"){
+        } else if (Auth::user()->level == "Siswa") {
             return redirect()->route('siswa');
-            }
         }
     }
+}

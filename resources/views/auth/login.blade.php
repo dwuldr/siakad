@@ -8,7 +8,7 @@
                 <h3 class="text-center font-weight-light my-4">Masuk</h3>
             </div>
             <div class="card-body">
-                <form method="POST" action="/checklogin">
+                <form method="post" action="{{url('/checklogin')}}">
                     @csrf
                     <div class="form-group">
                         <label class="small mb-1" for="username">Username</label>
