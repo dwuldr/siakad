@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Siswa;
-use App\Kelas;
 use App\User;
 use App\Spp;
 use App\Pembayaran;
@@ -56,10 +55,9 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::all();
         $users = User::all();
-        $kelas = Kelas::all();
         // $data = [$users, $kelas, $spp];
 
-        return view("admin.siswa.create", compact('siswa', 'users', 'kelas'));
+        return view("admin.siswa.create", compact('siswa', 'users'));
     }
 
     /**
@@ -72,7 +70,6 @@ class SiswaController extends Controller
     {
         $siswa = new Siswa();
         $siswa->idUsers = $request->get("idUsers");
-        $siswa->idKelas = $request->get("idKelas");
         $siswa->nis = $request->get("nis");
         $siswa->nama_siswa = $request->get("nama_siswa");
         $siswa->alamat = $request->get("alamat");
@@ -80,6 +77,8 @@ class SiswaController extends Controller
         $siswa->tmp_lahir = $request->get("tmp_lahir");
         $siswa->tgl_lahir = $request->get("tgl_lahir");
         $siswa->telp = $request->get("telp");
+        $siswa->nama_ortu = $request->get("nama_ortu");
+        $siswa->status_2 = $request->get("status_2");
         $siswa->save();
         $siswa = Siswa::all();
         return redirect('siswa');
@@ -108,8 +107,7 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::findOrFail($idSiswa);
         $users = User::all();
-        $kelas = Kelas::all();
-        return view("admin.siswa.edit", compact('siswa', 'users', 'kelas'));
+        return view("admin.siswa.edit", compact('siswa', 'users'));
     }
 
     /**
@@ -123,7 +121,6 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::findOrFail($idSiswa);
         $siswa->idUsers = $request->get('idUsers');
-        $siswa->idKelas = $request->get('idKelas');
         $siswa->nis = $request->get("nis");
         $siswa->nama_siswa = $request->get("nama_siswa");
         $siswa->alamat = $request->get("alamat");
@@ -131,6 +128,8 @@ class SiswaController extends Controller
         $siswa->tmp_lahir = $request->get("tmp_lahir");
         $siswa->tgl_lahir = $request->get("tgl_lahir");
         $siswa->telp = $request->get("telp");
+        $siswa->nama_ortu = $request->get("nama_ortu");
+        $siswa->status_2 = $request->get("status_2");
         $siswa->save();
         return redirect('siswa');
     }

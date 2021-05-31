@@ -18,7 +18,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Pengguna</th>
-                                <th>Kelas</th>
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
@@ -26,6 +25,8 @@
                                 <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Telp/HP</th>
+                                <th>Nama Orang Tua</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -35,7 +36,6 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$siswa->users->username }}</td>
-                                    <td>{{$siswa->kelas->nama_kelas }}</td>
                                     <td>{{$siswa->nis}}</td>
                                     <td>{{$siswa->nama_siswa}}</td>
                                     <td>{{$siswa->alamat}}</td>
@@ -43,6 +43,8 @@
                                     <td>{{$siswa->tmp_lahir}}</td>
                                     <td>{{$siswa->tgl_lahir}}</td>
                                     <td>{{$siswa->telp}}</td>
+                                    <td>{{$siswa->nama_ortu}}</td>
+                                    <td>{{$siswa->status_2}}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{route('siswa.edit', ['id' => $siswa->idSiswa])}}">
                                             <i class="fa fa-edit"></i></a>
