@@ -44,11 +44,11 @@ class login extends Controller
 
                 return redirect('/home');
             } else {
-
+                return 'Password salah';
                 return redirect('/login')->with('message', 'Password salah!');
             }
         } else {
-
+            return 'Username salah';
             return redirect('/login')->with('message', 'Username tidak ditemukan!');
         }
     }

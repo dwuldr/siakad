@@ -78,7 +78,7 @@ Route::group(['middleware' =>['auth']], function() {
 
         Route::get('/absen', 'AbsenController@index');
         Route::get('/absen/list/{id}', 'AbsenController@listAbsen');
-        Route::get('/absen/list/add', 'AbsenController@listSiswa');
+        Route::get('/absen/list/add/{idKelas}', 'AbsenController@listSiswa');
     });
 
     Route::middleware(['admin'])->group(function () {

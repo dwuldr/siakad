@@ -1,9 +1,11 @@
 <?php
-
+// setlocale(LC_TIME, 'id_ID.utf8');
 namespace App\Http\Controllers;
 
 use App\Absensi;
 use App\Jadwal;
+use App\Kelas;
+use App\Siswa;
 use Illuminate\Http\Request;
 
 class AbsenController extends Controller
@@ -13,13 +15,39 @@ class AbsenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function hariIndo($hariInggris)
+    {
+        switch ($hariInggris) {
+            case 'Sunday':
+                return 'Minggu';
+            case 'Monday':
+                return 'Senin';
+            case 'Tuesday':
+                return 'Selasa';
+            case 'Wednesday':
+                return 'Rabu';
+            case 'Thursday':
+                return 'Kamis';
+            case 'Friday':
+                return 'Jumat';
+            case 'Saturday':
+                return 'Sabtu';
+            default:
+                return 'hari tidak valid';
+        }
+    }
+
     public function index()
     {
         // return session('id');
+        $day = date("l");
+        $hari = $this->hariIndo($day);
+
         $data = Jadwal::where('jadwal.idGuru', session('id'))
             ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
             ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
             ->select('mapel.nama_mapel', 'jadwal.*')
+            ->where('jadwal.hari', $hari)
             ->get();
         // return $data;
         return view('guru.absensi.jadwal', compact('data'));
@@ -27,19 +55,22 @@ class AbsenController extends Controller
 
     public function listAbsen($id)
     {
-
-        // $data = Absensi::
-        return view('guru.absensi.listAbsensi', compact('data'));
+        $kelas = Jadwal::where('idJadwal', $id)->first();
+        $data = Absensi::where('idJadwal', $id)
+            ->get();
+        // return $data;
+        return view('guru.absensi.listAbsensi', compact('data', 'kelas'));
     }
 
-    public function listSiswa($id)
+    public function listSiswa($idKelas)
     {
         $data = Jadwal::leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
-        ->leftJoin('siswa', 'siswa.idKelas', 'kelas.idKelas')
-        ->where('jadwal.idJadwal', $id)
-        ->select('siswa.*', 'kelas.nama_kelas')
-        ->get();
-        return view('guru.absensi.listSiswa');
+            ->leftJoin('siswa', 'siswa.idKelas', 'kelas.idKelas')
+            ->where('jadwal.idKelas', $idKelas)
+            ->select('siswa.*', 'kelas.nama_kelas')
+            ->get();
+        // return $data;
+        return view('guru.absensi.listSiswa', compact('data'));
     }
 
 
