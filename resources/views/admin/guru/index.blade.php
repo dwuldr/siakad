@@ -32,11 +32,10 @@
                                     <td>{{$i++}}</td>
                                     <td>{{$guru->nip}}</td>
                                     <td>{{$guru->nama_guru}}</td>
-                                    <td>{{$guru->alamat}}</td>
                                     <td>{{$guru->jk}}</td>
+                                    <td>{{$guru->alamat}}</td>
                                     <td>{{$guru->telp}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('guru.show', ['id' => $guru->idGuru]) }}"><i class="fa fa-refresh"></i></a>
                                         <a class="btn btn-warning" href="{{route('guru.edit', ['id' => $guru->idGuru])}}">
                                             <i class="fa fa-edit"></i></a>
 
