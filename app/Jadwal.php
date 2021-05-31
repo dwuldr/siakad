@@ -12,7 +12,7 @@ class Jadwal extends Model
 {
     protected $table = 'jadwal';
     protected $primaryKey = 'idJadwal';
-    protected $fillable = ['idMapel', 'idKelas', 'idGuru', 'jam_mulai', 'jam_selesai'];
+    protected $fillable = ['idMapel', 'idKelas', 'idGuru', 'hari', 'jam_mulai', 'jam_selesai'];
 
     public function jadwal()
     {

@@ -21,6 +21,7 @@
                                 <th>Mapel</th>
                                 <th>Kelas</th>
                                 <th>Guru</th>
+                                <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Selesai</th>
                                 <th>Aksi</th>
@@ -34,6 +35,7 @@
                                     <td>{{$jadwal->mapel->nama_mapel }}</td>
                                     <td>{{$jadwal->kelas->nama_kelas }}</td>
                                     <td>{{$jadwal->guru->nama_guru }}</td>
+                                    <td>{{$jadwal->hari }}</td>
                                     <td>{{$jadwal->jam_mulai }}</td>
                                     <td>{{$jadwal->jam_selesai }}</td>
                                     <td>

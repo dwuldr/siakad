@@ -65,6 +65,7 @@ class JadwalController extends Controller
         $jadwal->idMapel = $request->get("idMapel");
         $jadwal->idKelas = $request->get("idKelas");
         $jadwal->idGuru = $request->get("idGuru");
+        $jadwal->hari = $request->get("hari");
         $jadwal->jam_mulai = $request->get("jam_mulai");
         $jadwal->jam_selesai = $request->get("jam_selesai");
         $jadwal->save();
@@ -111,6 +112,7 @@ class JadwalController extends Controller
         $jadwal->idMapel = $request->get('idMapel');
         $jadwal->idKelas = $request->get('idKelas');
         $jadwal->idGuru = $request->get('idGuru');
+        $jadwal->hari = $request->get('hari');
         $jadwal->jam_mulai = $request->get("jam_mulai");
         $jadwal->jam_selesai = $request->get("jam_selesai");
         $jadwal->save();

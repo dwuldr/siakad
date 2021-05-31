@@ -37,6 +37,13 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="hari">Hari</label>
+                    <input type="date" class="form-control" id="hari" name="hari">
+                    @error('hari')
+                        <small class="text-danger">{{ $message}}</small>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="jam_mulai">Jam Mulai</label>
                     <input type="time" class="form-control" id="jam_mulai" name="jam_mulai">
                     @error('jam_mulai')
