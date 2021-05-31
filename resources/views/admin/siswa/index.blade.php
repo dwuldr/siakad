@@ -32,24 +32,24 @@
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($data['siswa'] as $idSiswa =>$siswa)
+                            @foreach ($siswa as $item)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$siswa->users->username }}</td>
-                                    <td>{{$siswa->nis}}</td>
-                                    <td>{{$siswa->nama_siswa}}</td>
-                                    <td>{{$siswa->alamat}}</td>
-                                    <td>{{$siswa->jk}}</td>
-                                    <td>{{$siswa->tmp_lahir}}</td>
-                                    <td>{{$siswa->tgl_lahir}}</td>
-                                    <td>{{$siswa->telp}}</td>
-                                    <td>{{$siswa->nama_ortu}}</td>
-                                    <td>{{$siswa->status_2}}</td>
+                                    <td>{{$item->users->username }}</td>
+                                    <td>{{$item->nis}}</td>
+                                    <td>{{$item->nama_siswa}}</td>
+                                    <td>{{$item->alamat}}</td>
+                                    <td>{{$item->jk}}</td>
+                                    <td>{{$item->tmp_lahir}}</td>
+                                    <td>{{$item->tgl_lahir}}</td>
+                                    <td>{{$item->telp}}</td>
+                                    <td>{{$item->nama_ortu}}</td>
+                                    <td>{{$item->status_2}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{route('siswa.edit', ['id' => $siswa->idSiswa])}}">
+                                        <a class="btn btn-warning" href="{{route('siswa.edit', ['id' => $item->idSiswa])}}">
                                             <i class="fa fa-edit"></i></a>
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                            action="{{route('siswa.destroy', ['id' => $siswa->idSiswa ])}}">
+                                            action="{{route('siswa.destroy', ['id' => $item->idSiswa ])}}">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="DELETE" name="_method">
                                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

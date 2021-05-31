@@ -30,7 +30,7 @@ class SiswaController extends Controller
         $users = DB::table('users')->get();
 
         $data = ['siswa' => $siswa, 'users' => $users];
-        return view("admin.siswa.index", compact('data'));
+        return view("admin.siswa.index", compact('siswa'));
     }
 
     public function siswa($idSiswa)
