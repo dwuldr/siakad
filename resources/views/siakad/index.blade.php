@@ -167,8 +167,8 @@
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
-						<li class="nav-item"><a class="nav-link" href="/login.php">Login</a></li>
-						<li class="nav-item"><a class="nav-link" href="/register.php">Register</a></li>
+						<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Gabung</span></a></li>
