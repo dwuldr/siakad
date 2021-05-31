@@ -21,6 +21,7 @@ class CreateJadwalTable extends Migration
             $table->foreign('idKelas')->references('idKelas')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idGuru')->unsigned();
             $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
+            $table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum`at', 'Sabtu']);
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->timestamps();

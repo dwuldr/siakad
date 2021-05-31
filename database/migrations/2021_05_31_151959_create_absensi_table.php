@@ -15,12 +15,9 @@ class CreateAbsensiTable extends Migration
     {
         Schema::create('absensi', function (Blueprint $table) {
             $table->bigIncrements('idAbsensi');
-            $table->bigInteger('idSiswa')->unsigned();
-            $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('idJadwal')->unsigned();
+            $table->foreign('idJadwal')->references('idJadwal')->on('jadwal')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tgl');
-            $table->string('sakit', 5);
-            $table->string('izin', 5);
-            $table->string('alpha', 5);
             $table->timestamps();
         });
     }

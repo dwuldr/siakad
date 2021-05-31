@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRapotTable extends Migration
+class CreateNilaiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,20 @@ class CreateRapotTable extends Migration
      */
     public function up()
     {
-        Schema::create('rapot', function (Blueprint $table) {
+        Schema::create('nilai', function (Blueprint $table) {
             $table->bigIncrements('idNilai');
+            $table->bigInteger('idMapel')->unsigned();
+            $table->foreign('idMapel')->references('idMapel')->on('mapel')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idGuru')->unsigned();
             $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idSiswa')->unsigned();
             $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('idMapel')->unsigned();
-            $table->foreign('idMapel')->references('idMapel')->on('mapel')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('idKelas')->unsigned();
-            $table->foreign('idKelas')->references('idKelas')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('p_predikat', 5);
-            $table->text('p_deskripsi');
-            $table->string('p_nilai', 5);
-            $table->string('k_nilai', 5);
-            $table->string('k_predikat', 5);
-            $table->text('k_deskripsi');
+            $table->string('kkm', 5);
+            $table->string('nilai_akademik', 5);
+            $table->string('deskripsi_akademik', 5);
+            $table->string('nilai_kreatifitas', 5);
+            $table->string('deskripsi_kreatifitas', 5);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -40,6 +38,6 @@ class CreateRapotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rapot');
+        Schema::dropIfExists('nilai');
     }
 }
