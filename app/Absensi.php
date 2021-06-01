@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Absensi extends Model
 {
     protected $table = 'absensi';
-    protected $fillable = ['idSiswa', 'tgl', 'sakit', 'izin', 'alpha'];
+    protected $fillable = ['idJadwal', 'tgl', 'created_at', 'updated_at'];
 }

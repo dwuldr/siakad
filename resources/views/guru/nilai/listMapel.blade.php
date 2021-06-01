@@ -1,15 +1,15 @@
 @extends('sbadmin/guru_master')
-@section('title', 'List Absensi')
+@section('title', 'nilai guru')
 
 @section('content')
     {{ session('sukses') }}
-    <h1 class="h3 mb-4 text-gray-800">Data Absensi</h1>
+    <h1 class="h3 mb-4 text-gray-800">List Mata Pelajaran</h1>
     <div class="container-fluid">
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="/absen/list/{{$id}}/add/{{$kelas->idKelas}}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i> Tambah Absen</a>
+                <a href="/nilai/create" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i> Tambah Nilai</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -17,7 +17,6 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Tanggal</th>
                                 <th>Mapel</th>
                                 <th>Kelas</th>
                                 <th>Aksi</th>
@@ -25,17 +24,17 @@
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($data as $item)
+                            @foreach ($mapel as $mpl)
                                 <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>23 Mei 2021</td>
-                                    <td>Bahasa Indonesia</td>
-                                    <td>7B</td>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $mpl->nama_mapel }}</td>
+                                    <td>{{ $mpl->nama_kelas }}</td>
+
                                     <td>
-                                        <a class="btn btn-success" href="">
-                                            <i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-info" href="">
-                                            <i class="fa fa-download"></i></a>
+                                        <a class="btn btn-warning"
+                                            href="{{ route('nilai.edit', ['id' => $mpl->idKelas]) }}">
+                                            Input Nilai</a>
+
                                     </td>
                                 </tr>
                             @endforeach

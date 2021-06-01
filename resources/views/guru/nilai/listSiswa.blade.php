@@ -9,61 +9,60 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{url('/absen/save')}}" method="post">
+                <form action="{{ url('/absen/save') }}" method="post">
                     @csrf
-                    <input type="hidden" name="idJadwal" value="{{$idJadwal}}">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal</th>
                                     <th>Nama</th>
-                                    <th>Hadir</th>
-                                    <th>Sakit</th>
-                                    <th>Ijin</th>
-                                    <th>Alpha</th>
+                                    <th>KKM</th>
+                                    <th>Akademik</th>
+                                    <th>Deskripsi</th>
+                                    <th>Kreatifitas</th>
+                                    <th>Deskripsi</th>
                                 </tr>
                             </thead>
                             <tbody>
 
 
-                                @php $i = 1 @endphp
                                 @foreach ($data as $item)
                                     <tr>
+                                        @php $i = 1 @endphp
                                         <input type="hidden" name="idSiswa[]" value="{{ $item->idSiswa }}">
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ date('d, M Y') }}</td>
                                         <td>{{ $item->nama_siswa }}</td>
                                         <td>
+                                            <div class="form-group">
+                                                <label for="nilai_uas">KKM</label>
+                                                <input type="number" class="form-control" id="kkm" name="kkm[]">
+                                                @error('kkm')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </td>
+                                        <td>
                                             <div class="custom-control custom-checkbox">
                                                 <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="1" class="form-check-input"
-                                                        type="radio">
+                                                    <input name="keterangan[]" id="keterangan{{ $item->idSiswa }}" value="1"
+                                                        class="form-check-input" type="radio">
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="2" class="form-check-input"
-                                                        type="radio">
+                                                    <input name="keterangan[]" id="keterangan{{ $item->idSiswa }}" value="2"
+                                                        class="form-check-input" type="radio">
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="3" class="form-check-input"
-                                                        type="radio">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="4" class="form-check-input"
-                                                        type="radio">
+                                                    <input name="keterangan[]" id="keterangan{{ $item->idSiswa }}" value="3"
+                                                        class="form-check-input" type="radio">
                                                 </div>
                                             </div>
                                         </td>

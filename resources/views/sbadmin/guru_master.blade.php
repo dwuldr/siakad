@@ -77,7 +77,7 @@
                 <div id="nilai" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/nilai">Nilai Mapel</a>
-                        <a class="collapse-item" href="/raport">Nilai Raport</a>
+                        <a class="collapse-item" href="/listmapel">Nilai Raport</a>
                     </div>
                 </div>
             </li>

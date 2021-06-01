@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Guru;
@@ -29,6 +30,17 @@ class MapelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function listMapelByGuru()
+    {
+        $mapel = Jadwal::where('jadwal.idGuru', session('id'))
+            ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+            ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
+            ->select('mapel.nama_mapel', 'jadwal.*', 'kelas.nama_kelas')
+            ->get();
+
+        return view('guru.nilai.listMapel', compact('mapel'));
+    }
 
 
     public function mapel($idMapel)
@@ -105,7 +117,7 @@ class MapelController extends Controller
     public function destroy($idMapel)
     {
         $mapel = Mapel::find($idMapel);
-        if(!$mapel) {
+        if (!$mapel) {
             return redirect()->back();
         }
         $mapel->delete();
