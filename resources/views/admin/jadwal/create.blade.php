@@ -36,12 +36,20 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="hari">Hari</label>
-                    <input type="date" class="form-control" id="hari" name="hari">
-                    @error('hari')
-                        <small class="text-danger">{{ $message}}</small>
-                    @enderror
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="hari">Hari</label>
+                            <select class="form-control" name="hari" id="hari">
+                                <option>--Pilihan--</option>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jum`at">Jum`at</option>
+                                <option value="Sabtu">Sabtu</option>
+
+                            </select>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="jam_mulai">Jam Mulai</label>
