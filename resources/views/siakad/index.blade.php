@@ -76,8 +76,8 @@
                     <div class="col-lg-6">
                         <div class="header-contact text-lg-left text-center">
                             <ul>
-                                <li><img src="/template/images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
-                                <li><img src="/template/images/all-icon/email.png" alt="icon"><span>info@mts.com</span></li>
+                                <li><img src="/template/images/all-icon/map.png" alt="icon"><span>JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</span></li>
+                                <li><img src="/template/images/all-icon/email.png" alt="icon"><span>mtsroudlatul@gmail.com</span></li>
                             </ul>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
                             <a href="index-2.html">
-                                <img src="/template/images/logo.png" alt="Logo">
+                                <img src="/template/images/logo mts-1.jpg" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/about">TENTANG</a>
+                                        <a href="/about">PROFIL SEKOLAH</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="courses.html">SEKOLAH</a>
@@ -193,13 +193,13 @@
     <!--====== SLIDER PART START ======-->
 
     <section id="slider-part" class="slider-active">
-        <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-1.jpg)" data-overlay="4">
+        <div class="single-slider bg_cover pt-150" style="background-image: url(template/images/slider/mts-4.jpg)" data-overlay="4">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
                             <h1 data-animation="bounceInLeft" data-delay="1s">MTs Roudlatul Ulum Parang</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Sistem Informasi Akdemik</p>
+                            <p data-animation="fadeInUp" data-delay="1.3s">Sistem Informasi Akademik</p>
                             <ul>
                                 <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>
@@ -210,174 +210,19 @@
             </div> <!-- container -->
         </div> <!-- single slider -->
 
+
     </section>
 
     <!--====== SLIDER PART ENDS ======-->
 
     <!--====== CATEGORY PART START ======-->
 
-    <section id="category-part">
-        <div class="container">
-            <div class="category pt-40 pb-80">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="category-text pt-40">
-                            <h2>Best platform to learn everything</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2">
-                        <div class="row category-slied mt-40">
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-1">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-1.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Language</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-2">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-2.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Business</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-3">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-3.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Literature</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-1">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-1.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Language</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-2">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-2.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Business</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-3">
-                                        <span class="icon">
-                                            <img src="/template/images/all-icon/ctg-3.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Literature</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                        </div> <!-- category slied -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- category -->
-        </div> <!-- container -->
-    </section>
+
 
     <!--====== CATEGORY PART ENDS ======-->
 
     <!--====== ABOUT PART START ======-->
 
-    <section id="about-part" class="pt-65">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="section-title mt-50">
-                        <h5>Tentang</h5>
-                        <h2>Selamat Datang </h2>
-                    </div> <!-- section title -->
-                    <div class="about-cont">
-                        <p>Nama Sekolah MTSS ROUDLOTUL ULUM PARANG</p>
-                        <p>NPSN  20582517</p>
-                            <p>Alamat JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</p>
-                            <p>Kodepos -</p>
-                            <p>Desa/kelurahan
-                            Bungkuk</p>
-                            <p>Kecamatan
-                            Parang</p>
-                            <p>Kabupaten/Kota
-                            Magetan</p>
-                            <p>Provinsi
-                            Prov. Jawa Timur</p>
-                            <p>Status Sekolah
-                           SWASTA</p>
-                            <p>WAKTU Penyelenggaraan -</p>
-                            <p>jenjang Pendidikan
-                            MTs</p>
-                        <a href="#" class="main-btn mt-55">Learn More</a>
-                    </div>
-                </div> <!-- about cont -->
-                <div class="col-lg-6 offset-lg-1">
-                    <div class="about-event mt-50">
-                        <div class="event-title">
-                            <h3>Upcoming events</h3>
-                        </div> <!-- event title -->
-                        <ul>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html"><h4>Campus clean workshop</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html"><h4>Tech Summit</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html"><h4>Enviroement conference</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div> <!-- about event -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="about-bg">
-            <img src="/template/images/about/bg-1.png" alt="About">
-        </div>
-    </section>
 
     <!--====== ABOUT PART ENDS ======-->
 
@@ -392,7 +237,7 @@
 
     <!--====== VIDEO FEATURE PART START ======-->
 
-    <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url(images/bg-1.jpg)">
+    <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url(template/images/mts-3.jpg)">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-last order-lg-first">
@@ -403,7 +248,7 @@
                 <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
                     <div class="feature pt-50">
                         <div class="feature-title">
-                            <h3>Our Facilities</h3>
+                            <h3>Profil Sekolah</h3>
                         </div>
                         <ul>
                             <li>
@@ -412,30 +257,28 @@
                                         <img src="/template/images/all-icon/f-1.png" alt="icon">
                                     </div>
                                     <div class="cont">
-                                        <h4>Global Certificate</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem quibibendum sem nibhutis.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="/template/images/all-icon/f-2.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Alumni Support</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem quibibendum sem nibhutis.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="/template/images/all-icon/f-3.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Books & Library</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem quibibendum sem nibhutis.</p>
+                                        <h5>Nama Sekolah</h5>
+                                        <p>MTSS ROUDLOTUL ULUM PARANG</p>
+                                        <h5>NPSN  </h5>
+                                        <p>20582517</p>
+                                        <h5>Alamat</h5>
+                                        <p>JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</p>
+                                        <h5>Kodepos </h5>
+                                        <p>-</p>
+                                        <h5>Desa/kelurahan
+                                            Bungkuk
+                                            <p>Kecamatan
+                                            Parang</p>
+                                            <h5>Kabupaten/Kota</h5>
+                                            <p>Magetan</p>
+                                            <h5>Provinsi</h5>
+                                            <p>Prov. Jawa Timur</p>
+                                            <h5>Status Sekolah
+                                                <p>SWASTA</p>
+                                                <h5>WAKTU Penyelenggaraan
+                                                    <p>-</p>
+                                                    <h5>Jenjnag Pendidikan
+                                                        <p>MTs</p>
                                     </div>
                                 </div> <!-- singel feature -->
                             </li>
@@ -456,12 +299,11 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="section-title mt-50">
-                        <h5>Featured Teachers</h5>
-                        <h2>Meet Our teachers</h2>
+                        <h2>Guru MTs Roudlatul Ulum Parang</h2>
                     </div> <!-- section title -->
                     <div class="teachers-cont">
                         <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
-                        <a href="#" class="main-btn mt-55">Career with us</a>
+
                     </div> <!-- teachers cont -->
                 </div>
                 <div class="col-lg-6 offset-lg-1">
@@ -470,44 +312,28 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/t-1.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                                        <span>Vice chencelor</span>
+                                        <img src="/template/images/teachers/guru1.jpg" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/t-2.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>David card</h6></a>
-                                        <span>Pro chencelor</span>
+                                        <img src="/template/images/teachers/guru2.jpg" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/t-3.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Rebeka alig</h6></a>
-                                        <span>Pro chencelor</span>
+                                        <img src="/template/images/teachers/guru3.jpg" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/t-4.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Hanna bein</h6></a>
-                                        <span>Aerobics head</span>
+                                        <img src="/template/images/teachers/guru4.jpg" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
@@ -533,58 +359,72 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-title pb-40">
-                        <h5>Testimonial</h5>
-                        <h2>What they say</h2>
+                        <h2>Siswa</h2>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="row testimonial-slied mt-40">
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="/template/images/testimonial/t-1.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
+<div class="col-lg-6 offset-lg-1">
+                    <div class="teachers mt-20">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa1.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
                             </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="/template/images/testimonial/t-2.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa2.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
                             </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="/template/images/testimonial/t-3.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa3.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
                             </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa4.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa5.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa6.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa7.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="/template/images/teachers/siswa8.jpg" alt="Teachers">
+                                    </div>
+                                </div> <!-- singel teachers -->
+                            </div>
+                        </div> <!-- row -->
+                    </div> <!-- teachers -->
                 </div>
-            </div> <!-- testimonial slied -->
         </div> <!-- container -->
     </section>
 
@@ -597,8 +437,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-title pb-50">
-                        <h5>Latest News</h5>
-                        <h2>From the news</h2>
+
+                        <h2>Kegiatan</h2>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -606,15 +446,12 @@
                 <div class="col-lg-6">
                     <div class="singel-news mt-30">
                         <div class="news-thum pb-25">
-                            <img src="/template/images/news/n-1.jpg" alt="News">
+                            <img src="/template/images/news/mts-hut.jpg" alt="News">
                         </div>
                         <div class="news-cont">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                <li><a href="#"> <span>By</span> Adam linn</a></li>
-                            </ul>
-                            <a href="blog-singel.html"><h3>Tips to grade high cgpa in university life</h3></a>
-                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt .</p>
+
+                            <a href="blog-singel.html"><h3>Hari Jadi MTs Roudlatul Ulum Parang</h3></a>
+
                         </div>
                     </div> <!-- singel news -->
                 </div>
@@ -623,17 +460,13 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/ns-1.jpg" alt="News">
+                                    <img src="/template/images/news/mts-studytour.jpg" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Intellectual communication</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons  vel.</p>
+
+                                    <a href="blog-singel.html"><h3>Study Tour</h3></a>
                                 </div>
                             </div>
                         </div> <!-- row -->
@@ -642,17 +475,13 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/ns-2.jpg" alt="News">
+                                    <img src="/template/images/news/mts-pramuka.jpg" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Study makes you perfect</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons  vel.</p>
+
+                                    <a href="blog-singel.html"><h3>Pramuka</h3></a>
                                 </div>
                             </div>
                         </div> <!-- row -->
@@ -661,17 +490,43 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/ns-3.jpg" alt="News">
+                                    <img src="/template/images/news/mts-drumband.jpg" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>2 December 2018 </a></li>
-                                        <li><a href="#"> <span>By</span> Adam linn</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Technology edcution is now....</h3></a>
-                                    <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons  vel.</p>
+
+                                    <a href="blog-singel.html"><h3>Drum Band.jpg</h3></a>
+                                </div>
+                            </div>
+                        </div> <!-- row -->
+                    </div>
+                    <div class="singel-news news-list">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="news-thum mt-30">
+                                    <img src="/template/images/news/keg-perpisahan.jpg" alt="News">
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="news-cont mt-30">
+
+                                    <a href="blog-singel.html"><h3>Pelepasan Siswa Kelas IX</h3></a>
+                                </div>
+                            </div>
+                        </div> <!-- row -->
+                    </div>
+                    <div class="singel-news news-list">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="news-thum mt-30">
+                                    <img src="/template/images/news/keg-qurban.jpg" alt="News">
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="news-cont mt-30">
+
+                                    <a href="blog-singel.html"><h3>Penyembelihan Hewan Qurban</h3></a>
                                 </div>
                             </div>
                         </div> <!-- row -->
@@ -685,42 +540,6 @@
 
     <!--====== PATNAR LOGO PART START ======-->
 
-    <div id="patnar-logo" class="pt-40 pb-80 gray-bg">
-        <div class="container">
-            <div class="row patnar-slied">
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-1.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-2.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-3.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-4.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-2.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="/template/patnar-logo/p-3.png" alt="Logo">
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div>
 
     <!--====== PATNAR LOGO PART ENDS ======-->
 
@@ -730,20 +549,6 @@
         <div class="footer-top pt-40 pb-70">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-about mt-40">
-                            <div class="logo">
-                                <a href="#"><img src="/template/logo-2.png" alt="Logo"></a>
-                            </div>
-                            <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
-                            <ul class="mt-20">
-                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div> <!-- footer about -->
-                    </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer-link mt-40">
                             <div class="footer-title pb-25">
@@ -759,24 +564,11 @@
                             </ul>
                         </div> <!-- footer link -->
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="footer-link support mt-40">
-                            <div class="footer-title pb-25">
-                                <h6>Support</h6>
-                            </div>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
-                            </ul>
-                        </div> <!-- support -->
-                    </div>
+
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-address mt-40">
                             <div class="footer-title pb-25">
-                                <h6>Contact Us</h6>
+                                <h6>Kontak Kami</h6>
                             </div>
                             <ul>
                                 <li>
@@ -784,7 +576,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</p>
                                     </div>
                                 </li>
                                 <li>
@@ -800,7 +592,15 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>mtsroudlatul@gmail.com</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-facebook-f"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>MTs Roudlatul Ulum Parang</p>
                                     </div>
                                 </li>
                             </ul>
