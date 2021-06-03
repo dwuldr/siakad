@@ -16,6 +16,7 @@ use App\Imports\SiswaImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Jadwal;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
@@ -40,7 +41,57 @@ class NilaiController extends Controller
         $nilai = Nilai::find($idNilai);
         return view('nilai.show', compact('nilai'));
 
-        return view('guru.nilai.index')->with('nilai',$idNilai);
+        return view('guru.nilai.index')->with('nilai', $idNilai);
+    }
+
+    public function listSiswa($id)
+    {
+        $data = Jadwal::leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+            ->leftJoin('siswa', 'siswa.idKelas', 'kelas.idKelas')
+            ->where('jadwal.idJadwal', $id)
+            ->whereNotIn('idSiswa', function ($query) {
+                $query->select('idSiswa')->from('nilai');
+            })
+            ->select('siswa.*', 'kelas.nama_kelas')
+            ->get();
+
+        $mapel = Jadwal::leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
+            ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+            ->select('mapel.*', 'kelas.*', 'jadwal.idJadwal')
+            ->where('jadwal.idJadwal', $id)->first();
+        // return $mapel;
+        return view('guru.nilai.listSiswa', compact('data', 'mapel'));
+    }
+
+    public function detailNilai($idMapel)
+    {
+        $data = Nilai::leftJoin('mapel', 'mapel.idMapel', 'nilai.idMapel')
+            ->leftJoin('siswa', 'siswa.idSiswa', 'nilai.idSiswa')
+            ->where('mapel.idMapel', $idMapel)
+            ->select('siswa.*', 'nilai.*')
+            ->get();
+            // return $data;
+            return view('guru.nilai.listSiswaDone', compact('data'));
+    }
+
+    public function inputNilai(Request $request)
+    {
+        try {
+            Nilai::create([
+                'idSiswa' => $request['idSiswa'],
+                'idMapel' => $request['idMapel'],
+                'kkm' => $request['kkm'],
+                'nilai_akademik' => $request['nilai_akademik'],
+                'deskripsi_akademik' => $request['deskripsi_akademik'],
+                'nilai_kreatifitas' => $request['nilai_kreatifitas'],
+                'deskripsi_kreatifitas' => $request['deskripsi_kreatifitas'],
+                'idGuru' => session('id'),
+            ]);
+            return redirect(url('listSiswa/'.$request['idJadwal']))->with('alert', 'Berhasil input nilai');
+        } catch (\Throwable $th) {
+            return $th;
+        }
+        return $request;
     }
 
     public function create()
@@ -130,7 +181,7 @@ class NilaiController extends Controller
     public function destroy($idNilai)
     {
         $nilai = Nilai::find($idNilai);
-        if(!$nilai) {
+        if (!$nilai) {
             return redirect('nilai');
         }
         $nilai->delete();

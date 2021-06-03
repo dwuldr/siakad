@@ -70,7 +70,7 @@ Route::group(['middleware' =>['auth']], function() {
         Route::get('/absen/harian', 'GuruController@absen')->name('absen.harian');
         Route::post('/absen/simpan', 'GuruController@simpan')->name('absen.simpan');
         Route::get('/jadwal/guru', 'JadwalController@guru')->name('jadwal.guru');
-        Route::get('/nilai', 'NilaiController@index')->name('nilai');
+        Route::get('/nilai', 'NilaiController@index');
         Route::resource('/ulangan', 'UlanganController');
         Route::resource('/sikap', 'SikapController');
         Route::get('/rapot/predikat', 'RapotController@predikat');
@@ -82,7 +82,9 @@ Route::group(['middleware' =>['auth']], function() {
         Route::post('/absen/save', 'AbsenController@store');
 
         Route::get('/listmapel', 'MapelController@listMapelByGuru');
-        Route::get('/listSiswa/{idKelas}', 'MapelController@listSiswa');
+        Route::get('/listSiswa/{id}', 'NilaiController@listSiswa');
+        Route::get('/detailNilai/{idMapel}', 'NilaiController@detailNilai');
+        Route::post('/inputNilai', 'NilaiController@inputNilai');
     });
 
     Route::middleware(['admin'])->group(function () {

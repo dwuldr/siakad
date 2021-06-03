@@ -36,7 +36,7 @@ class MapelController extends Controller
         $mapel = Jadwal::where('jadwal.idGuru', session('id'))
             ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
             ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
-            ->select('mapel.nama_mapel', 'jadwal.*', 'kelas.nama_kelas')
+            ->select('mapel.nama_mapel', 'jadwal.*', 'kelas.nama_kelas', 'kelas.idKelas')
             ->get();
 
         return view('guru.nilai.listMapel', compact('mapel'));

@@ -9,7 +9,7 @@ class Nilai extends Model
 {
     protected $table = 'nilai';
     protected $primaryKey = 'idNilai';
-    protected $fillable = ['idMapel', 'idGuru', 'idSiswa', 'nilai_harian', 'nilai_uts', 'nilai_uas'];
+    protected $fillable = ['idMapel', 'idGuru', 'idSiswa', 'kkm', 'nilai_kreatifitas', 'nilai_akademik', 'deskripsi_akademik', 'deskripsi_kreatifitas'];
 
     public function mapel()
     {
