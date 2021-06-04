@@ -46,14 +46,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home</span></a>
-            </li>
-
-            <!-- Heading -->
-            <li class="nav-item">
-                <a class="nav-link" href="/guru/edit">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Profil</span></a>
+                    <span>Beranda</span></a>
             </li>
 
             <li class="nav-item">
@@ -170,10 +163,6 @@
                                 <a class="dropdown-item" href="{{url('/profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Pengaturan
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">

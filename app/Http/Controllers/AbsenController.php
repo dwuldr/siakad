@@ -31,7 +31,7 @@ class AbsenController extends Controller
             case 'Thursday':
                 return 'Kamis';
             case 'Friday':
-                return 'Jumat';
+                return 'Jum`at';
             case 'Saturday':
                 return 'Sabtu';
             default:
