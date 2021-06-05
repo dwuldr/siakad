@@ -20,15 +20,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="idKelas">Kelas</label>
-                    <select id="idKelas" name="idKelas" class="form-control @error('idKelas') is-invalid @enderror select2bs4">
-                        <option value="">-- Pilih Kelas --</option>
-                        @foreach($kelas as $data)
-                            <option value="{{ $data->idKelas }}">{{ $data->nama_kelas }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="nis">NIS</label>
                     <input type="text" value="{{$siswa->nis}}" class="form-control" id="nis" name="nis">
                     @error('nis')

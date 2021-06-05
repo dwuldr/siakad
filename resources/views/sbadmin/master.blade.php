@@ -63,29 +63,17 @@
                 </a>
                 <div id="master" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/users">Data User</a>
                         <a class="collapse-item" href="/guru">Data Guru</a>
                         <a class="collapse-item" href="/siswa">Data Siswa</a>
+                        <a class="collapse-item" href="/tahun_ajaran">Data Akademik</a>
+                        <a class="collapse-item" href="/kelas">Data Kelas</a>
+                        <a class="collapse-item" href="/mapel">Data Mata Pelajaran</a>
+                        <a class="collapse-item" href="/jadwal">Data Jadwal Pelajaran</a>
+                        <a class="collapse-item" href="/exkul">Data Extrakulikuler</a>
+                        <a class="collapse-item" href="/alumni">Data Alumni</a>
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#akademik"
-                    aria-expanded="true" aria-controls="akademik">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Akademik</span>
-                </a>
-                <div id="akademik" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mapel">Mata Pelajaran</a>
-                        <a class="collapse-item" href="/kelas">Kelas</a>
-                        <a class="collapse-item" href="/jadwal">Jadwal Pelajaran</a>
-                    </div>
-                </div>
-            </li>
-
             <!-- Divider -->
 
             <!-- Heading -->
@@ -106,7 +94,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/info">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Info</span></a>
+                    <span>Pengumuman</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/users">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User</span></a>
             </li>
 
             <!-- Divider -->

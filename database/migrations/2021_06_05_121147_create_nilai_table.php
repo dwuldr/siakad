@@ -21,11 +21,13 @@ class CreateNilaiTable extends Migration
             $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idSiswa')->unsigned();
             $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
+			$table->bigInteger('idAjaran')->unsigned();
+            $table->foreign('idAjaran')->references('idAjaran')->on('tahun_ajaran')->onUpdate('cascade')->onDelete('cascade');
             $table->string('kkm', 5);
-            $table->string('nilai_akademik', 5);
-            $table->string('deskripsi_akademik', 5);
-            $table->string('nilai_kreatifitas', 5);
-            $table->string('deskripsi_kreatifitas', 5);
+            $table->string('nilai_akademik', 5)->nullable();
+            $table->string('deskripsi_akademik', 100)->nullable();
+            $table->string('nilai_kreatifitas', 5)->nullable();
+            $table->string('deskripsi_kreatifitas', 100)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
