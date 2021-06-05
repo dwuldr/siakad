@@ -215,6 +215,47 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/info/{idinfo}/update", "InfoController@restore");
         });
 
+        Route::resource('tahun_ajaran', 'TahunAjaranController');
+        Route::group(["prefix" => "o", "as" => "o."], function () {
+            Route::get("/tahun_ajaran/tambah", ["uses" => "TahunAjaranController@tambah", "as" => "tambah"]);
+            Route::post("/tahun_ajaran/simpan", ["uses" => "TahunAjaranController@simpan", "as" => "simpan",]);
+            Route::post("/tahun_ajaran/edit",  ["uses" => "TahunAjaranController@edit", "as" => "admin.tahun_ajaran.edit",]);
+            Route::post("/tahun_ajaran/create",  ["uses" => "TahunAjaranController@create", "as" => "create",]);
+            Route::get("/tahun_ajaran/search", "TahunAjaranController@search");
+            Route::get("/tahun_ajaran/all", ["uses" => "tahun_ajaranControlle r@index", "as" => "admin.tahun_ajaran.index",]);
+            Route::post("/tahun_ajaran/delete",  ["uses" => "TahunAjaranController@delete", "as" => "delete",]);
+            Route::post("/tahun_ajaran/update",  ["uses" => "TahunAjaranController@update", "as" => "update",]);
+            Route::get("/tahun_ajaran/{idAjaran}/delete", "TahunAjaranController@delete");
+            Route::get("/tahun_ajaran/{idiAjaran}/update", "TahunAjaranController@restore");
+        });
+
+        Route::resource('exkul', 'ExkulController');
+        Route::group(["prefix" => "o", "as" => "o."], function () {
+            Route::get("/exkul/tambah", ["uses" => "ExkulController@tambah", "as" => "tambah"]);
+            Route::post("/exkul/simpan", ["uses" => "ExkulController@simpan", "as" => "simpan",]);
+            Route::post("/exkul/edit",  ["uses" => "ExkulController@edit", "as" => "admin.exkul.edit",]);
+            Route::post("/exkul/create",  ["uses" => "ExkulController@create", "as" => "create",]);
+            Route::get("/exkul/search", "ExkulController@search");
+            Route::get("/exkul/all", ["uses" => "exkulControlle r@index", "as" => "admin.exkul.index",]);
+            Route::post("/exkul/delete",  ["uses" => "ExkulController@delete", "as" => "delete",]);
+            Route::post("/exkul/update",  ["uses" => "ExkulController@update", "as" => "update",]);
+            Route::get("/exkul/{idExkul}/delete", "ExkulController@delete");
+            Route::get("/exkul/{idExkul}/update", "ExkulController@restore");
+        });
+
+        Route::resource('alumni', 'AlumniController');
+        Route::group(["prefix" => "o", "as" => "o."], function () {
+            Route::get("/alumni/tambah", ["uses" => "AlumnilController@tambah", "as" => "tambah"]);
+            Route::post("/alumni/simpan", ["uses" => "AlumnilController@simpan", "as" => "simpan",]);
+            Route::post("/alumni/edit",  ["uses" => "AlumnilController@edit", "as" => "admin.alumni.edit",]);
+            Route::post("/alumni/create",  ["uses" => "AlumnilController@create", "as" => "create",]);
+            Route::get("/alumni/search", "AlumnilController@search");
+            Route::get("/alumni/all", ["uses" => "alumniControlle r@index", "as" => "admin.alumni.index",]);
+            Route::post("/alumni/delete",  ["uses" => "AlumnilController@delete", "as" => "delete",]);
+            Route::post("/alumni/update",  ["uses" => "AlumnilController@update", "as" => "update",]);
+            Route::get("/alumni/{idAlumni}/delete", "AlumnilController@delete");
+            Route::get("/alumni/{idAlumni}/update", "AlumnilController@restore");
+        });
 
     });
 });

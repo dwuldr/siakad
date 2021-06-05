@@ -17,7 +17,7 @@ class CreateExkulTable extends Migration
             $table->bigIncrements('idExkul');
             $table->string('nama_exkul');
 			$table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum`at', 'Sabtu', 'Minggu']);
-			$table->date('waktu');
+			$table->time('waktu');
             $table->timestamps();
         });
     }

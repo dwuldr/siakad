@@ -15,7 +15,7 @@ class CreateTahunAjaranTable extends Migration
     {
         Schema::create('tahun_ajaran', function (Blueprint $table) {
             $table->bigIncrements('idAjaran');
-            $table->year('tahun_akademik');
+            $table->string('tahun_akademik');
 			$table->enum('semester', ['Ganjil', 'Genap']);
 			$table->enum('status', ['Aktif', 'NonAktif']);
             $table->timestamps();

@@ -65,7 +65,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/guru">Data Guru</a>
                         <a class="collapse-item" href="/siswa">Data Siswa</a>
-                        <a class="collapse-item" href="/tahun_ajaran">Data Akademik</a>
+                        <a class="collapse-item" href="/tahun_ajaran">Data Tahun Akademik</a>
                         <a class="collapse-item" href="/kelas">Data Kelas</a>
                         <a class="collapse-item" href="/mapel">Data Mata Pelajaran</a>
                         <a class="collapse-item" href="/jadwal">Data Jadwal Pelajaran</a>
