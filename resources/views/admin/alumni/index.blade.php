@@ -31,7 +31,7 @@
                                     <td>{{$i++}}</td>
                                     <td>{{$item->nama_alumni }}</td>
                                     <td>{{$item->kelas->nama_kelas }}</td>
-                                    <td>{{$item->tahun_ajaran->tahun_ajaran }}</td>
+                                    <td>{{$item->tahun_ajaran->tahun_akademik }}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{route('alumni.edit', ['id' => $item->idAlumni])}}">
                                             <i class="fa fa-edit"></i></a>

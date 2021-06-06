@@ -3,9 +3,13 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">Mapel</h1>
 
-    <form action="/mapel" method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Data Mapel</h1>
+        </div>
+        <div class="card-body">
+             <form action="/mapel" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -18,4 +22,7 @@
         <button type="submit" class="btn btn-primary">Tambah</button>
         <a href="/mapel" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+

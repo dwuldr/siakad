@@ -3,9 +3,13 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">Edit Jadwal</h1>
 
-    <form action="{{ route('jadwal.update', $jadwal->idJadwal)}}"method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Edit Jadwal</h1>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('jadwal.update', $jadwal->idJadwal)}}"method="POST">
         @csrf
         @method('PUT')
         <div class="container">
@@ -56,4 +60,9 @@
         <button type="submit" class="btn btn-primary">Edit</button>
         <a href="/jadwal" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+
+
+
