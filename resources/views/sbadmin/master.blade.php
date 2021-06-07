@@ -90,7 +90,7 @@
 
             <!-- Heading -->
             <li class="nav-item">
-                <a class="nav-link" href="/raport">
+                <a class="nav-link" href="{{url('/raport/kelas')}}">
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Raport Siswa</span></a>
             </li>

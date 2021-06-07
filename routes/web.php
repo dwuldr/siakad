@@ -77,9 +77,13 @@ Route::group(['middleware' =>['auth']], function() {
         Route::resource('/rapot', 'RapotController');
 
         Route::get('/absen', 'AbsenController@index');
+        Route::get('/absen/detail/{idAbsen}', 'AbsenController@show');
+        Route::get('/absen/cetak/{idAbsen}', 'AbsenController@getPdf');
         Route::get('/absen/list/{id}', 'AbsenController@listAbsen');
         Route::get('/absen/list/{idJadwal}/add/{idKelas}', 'AbsenController@listSiswa');
         Route::post('/absen/save', 'AbsenController@store');
+
+
 
         Route::get('/listmapel', 'MapelController@listMapelByGuru');
         Route::get('/listSiswa/{id}', 'NilaiController@listSiswa');
@@ -99,6 +103,9 @@ Route::group(['middleware' =>['auth']], function() {
             Route::get("/users/{idUsers}/delete", "UserController@delete");
             Route::get("/user/{idUsers}/update", "UserController@restore");
         });
+        Route::get('/raport/kelas', 'RaportController@index');
+        Route::get('/raport/kelas/{idKelas}', 'RaportController@show');
+        Route::get('/raport/cetak/{idSiswa}', 'RaportController@cetak');
 
         Route::resource('guru','GuruController');
         Route::group(["prefix" => "g", "as" => "g."], function () {

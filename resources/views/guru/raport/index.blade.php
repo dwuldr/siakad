@@ -1,40 +1,37 @@
 @extends('sbadmin/guru_master')
-@section('title', 'List Absensi')
+@section('title', 'List Kelas')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Data Absensi</h1>
+    <h1 class="h3 mb-4 text-gray-800">Data Kelas</h1>
     <div class="container-fluid">
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <a href="/absen/list/{{$id}}/add/{{$kelas->idKelas}}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i> Tambah Absen</a>
-            </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Mapel</th>
                                 <th>Kelas</th>
+                                <th>Wali Kelas</th>
+                                <th>NIP</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($data as $item)
+                            @foreach ($kelas as $item)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{Helper::tanggal($item->tgl)}}</td>
-                                    <td>{{$item->nama_mapel}}</td>
                                     <td>{{$item->nama_kelas}}</td>
+                                    <td>{{$item->nama_guru}}</td>
+                                    <td>{{$item->nip}}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ url('/absen/detail/'.$item->idAbsensi) }}">
-                                            <i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-info" href="{{ url('/absen/cetak/'.$item->idAbsensi) }}" >
-                                            <i class="fa fa-download"></i></a>
+                                        <a class="btn btn-success" href="{{ url('/raport/kelas/'.$item->idKelas) }}">
+                                            Detail</a>
+
                                     </td>
                                 </tr>
                             @endforeach

@@ -8,6 +8,7 @@ use App\AbsensiDetail as AppAbsensiDetail;
 use App\Jadwal;
 use App\Kelas;
 use App\Siswa;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class AbsenController extends Controller
@@ -41,25 +42,29 @@ class AbsenController extends Controller
 
     public function index()
     {
-        // return session('id');
+
         $day = date("l");
         $hari = $this->hariIndo($day);
 
-        $data = Jadwal::where('jadwal.idGuru', session('id'))
+        $data = Jadwal::where('jadwal.idPegawai', session('id'))
             ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
             ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
             ->select('mapel.nama_mapel', 'jadwal.*')
             ->where('jadwal.hari', $hari)
             ->get();
-        // return $data;
+
         return view('guru.absensi.jadwal', compact('data'));
     }
 
     public function listAbsen($id)
     {
         $kelas = Jadwal::where('idJadwal', $id)->first();
-        $data = Absensi::where('idJadwal', $id)
+        $data = Absensi::leftJoin('jadwal', 'jadwal.idJadwal', 'absensi.idJadwal')
+            ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
+            ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idMapel')
+            ->where('absensi.idJadwal', $id)
             ->get();
+        // return $data;
         // return $id;
         return view('guru.absensi.listAbsensi', compact('data', 'kelas', 'id'));
     }
@@ -152,9 +157,31 @@ class AbsenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idAbsen)
     {
-        //
+        $data = AppAbsensiDetail::leftJoin('siswa', 'siswa.idSiswa', 'absensi_detail.idSiswa')
+            ->select('siswa.nama_siswa', 'absensi_detail.*')
+            ->where('absensi_detail.idAbsensi', $idAbsen)
+            ->get();
+        return view('guru.absensi.listAbsensiDetail', compact('data'));
+        return $data;
+    }
+
+    public function getPdf($idAbsen)
+    {
+        $data = AppAbsensiDetail::leftJoin('siswa', 'siswa.idSiswa', 'absensi_detail.idSiswa')
+            ->select('siswa.*', 'absensi_detail.*')
+            ->where('absensi_detail.idAbsensi', $idAbsen)
+            ->get();
+        // return $data;
+        $mpl = Absensi::leftJoin('jadwal', 'jadwal.idJadwal', 'absensi.idJadwal')
+            ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
+            ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
+        ->first();
+
+        // return view('guru.absensi.printAbsenPdf', compact('data', 'mpl'));
+        $pdf = PDF::loadView('guru.absensi.printAbsenPdf', ['data'=>$data, 'mpl'=>$mpl]);
+        return $pdf->download('Detail_Absensi.pdf');
     }
 
     /**

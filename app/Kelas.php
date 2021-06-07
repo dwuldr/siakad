@@ -9,7 +9,7 @@ class Kelas extends Model
 {
     protected $table = 'kelas';
     protected $primaryKey = 'idKelas';
-    protected $fillable = ['idGuru', 'nama_kelas' ];
+    protected $fillable = ['idPegawai', 'nama_kelas' ];
 
     public function guru()
     {

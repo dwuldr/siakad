@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guru extends Model
 {
-    protected $table = 'guru';
-    protected $primaryKey = 'idGuru';
+    protected $table = 'pegawai';
+    protected $primaryKey = 'idPegawai';
     protected $fillable = ['idUsers', 'nip', 'nama_guru', 'jk',
     'tmp_lahir', 'tgl_lahir', 'alamat', 'telp'];
 

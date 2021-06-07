@@ -9,7 +9,7 @@ class Nilai extends Model
 {
     protected $table = 'nilai';
     protected $primaryKey = 'idNilai';
-    protected $fillable = ['idMapel', 'idGuru', 'idSiswa', 'kkm', 'nilai_kreatifitas', 'nilai_akademik', 'deskripsi_akademik', 'deskripsi_kreatifitas'];
+    protected $fillable = ['idMapel', 'idPegawai', 'idSiswa', 'kkm', 'nilai_kreatifitas', 'nilai_akademik', 'deskripsi_akademik', 'deskripsi_kreatifitas'];
 
     public function mapel()
     {
@@ -18,7 +18,7 @@ class Nilai extends Model
 
     public function guru()
     {
-        return $this->belongsTo('App\Guru', 'idGuru', 'idGuru');
+        return $this->belongsTo('App\Guru', 'idPegawai', 'idPegawai');
     }
 
     public function siswa()

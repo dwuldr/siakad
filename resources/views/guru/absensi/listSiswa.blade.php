@@ -2,7 +2,6 @@
 @section('title', 'List Absensi')
 
 @section('content')
-    {{ session('sukses') }}
     <h1 class="h3 mb-4 text-gray-800">Data Siswa</h1>
     <div class="container-fluid">
 

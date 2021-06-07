@@ -34,7 +34,7 @@ class HomeController extends Controller
             if (session('level') == "Admin") {
 
                 return view('admin/dashboard');
-            } else if (session('level') == "Guru") {
+            } else if (session('level') == "Pegawai") {
                 return view('guru/dashboard');
             } else if (session('level') == "Siswa") {
                 return view('siswa/dashboard');
