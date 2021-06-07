@@ -3,16 +3,19 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">pembayaran</h1>
 
-    <form action="/pembayaran" method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">pembayaran</h1>
+        <div class="card-body">
+             <form action="/pembayaran" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="idSiswa">User</label>
                     <select id="idSiswa" name="idSiswa" class="form-control @error('idSiswa') is-invalid @enderror select2bs4">
-                        <option>-- Pilih Username --</option>
+                        <option>-- Pilih Nama Siswa --</option>
                         @foreach($siswa as $data)
                             {{-- <option value="{{ $data->idSiswa }}">{{ $data->nama_pembayaran }}</option> --}}
                             <option value="{{ $data->idSiswa }}">{{ $data->nama_siswa }}</option>
@@ -45,4 +48,8 @@
         <button type="submit" class="btn btn-primary">Tambah</button>
         <a href="/pembayaran" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+
+

@@ -13,13 +13,13 @@
     <title>SIAKAD</title>
 
     <!-- Custom fonts for this template-->
-    <link href="/vendor/sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/sbadmin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="/vendor/sbadmin/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/vendor/sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('vendor/sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -63,29 +63,17 @@
                 </a>
                 <div id="master" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/users">Data User</a>
-                        <a class="collapse-item" href="/guru">Data Guru</a>
-                        <a class="collapse-item" href="/siswa">Data Siswa</a>
+                        <a class="collapse-item" href="{{url('admin/pegawai/index')}}">Data Pegawai</a>
+                        <a class="collapse-item" href="{{asset('siswa')}}">Data Siswa</a>
+                        <a class="collapse-item" href="/tahun_ajaran">Data Tahun Akademik</a>
+                        <a class="collapse-item" href="/kelas">Data Kelas</a>
+                        <a class="collapse-item" href="/mapel">Data Mata Pelajaran</a>
+                        <a class="collapse-item" href="/jadwal">Data Jadwal Pelajaran</a>
+                        <a class="collapse-item" href="/exkul">Data Extrakulikuler</a>
+                        <a class="collapse-item" href="/alumni">Data Alumni</a>
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#akademik"
-                    aria-expanded="true" aria-controls="akademik">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Akademik</span>
-                </a>
-                <div id="akademik" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mapel">Mata Pelajaran</a>
-                        <a class="collapse-item" href="/kelas">Kelas</a>
-                        <a class="collapse-item" href="/jadwal">Jadwal Pelajaran</a>
-                    </div>
-                </div>
-            </li>
-
             <!-- Divider -->
 
             <!-- Heading -->
@@ -106,7 +94,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/info">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Info</span></a>
+                    <span>Pengumuman</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/users">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User</span>
+                </a>
+                <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/pegawai/index">Data Pegawai</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -192,7 +192,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
                                 <img class="img-profile rounded-circle"
-                                    src="/vendor/sbadmin/img/undraw_profile.svg">
+                                    src="{{asset('vendor/sbadmin/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -272,21 +272,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/vendor/sbadmin/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/sbadmin/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="/vendor/sbadmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/sbadmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="/vendor/sbadmin/js/sb-admin-2.min.js"></script>
+    <script src="{{asset('vendor/sbadmin/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="/vendor/sbadmin/vendor/chart.js/Chart.min.js"></script>
+    <script src="{{asset('vendor/sbadmin/vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/vendor/sbadmin/js/demo/chart-area-demo.js"></script>
-    <script src="/vendor/sbadmin/js/demo/chart-pie-demo.js"></script>
+    <script src="{{asset('vendor/sbadmin/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset("vendor/sbadmin/js/demo/chart-pie-demo.js")}}"></script>
 
 </body>
 

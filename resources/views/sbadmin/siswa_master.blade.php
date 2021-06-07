@@ -53,11 +53,6 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <li class="nav-item">
-                <a class="nav-link" href="/guru/edit">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Profil</span></a>
-            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="absen">
@@ -68,7 +63,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/nilai_mapel">
                     <i class="fas fa-fw fa-file"></i>
-                    <span>Nilai Mapel</span></a>
+                    <span>Nilai</span></a>
             </li>
 
             <!-- Divider -->
@@ -159,10 +154,6 @@
                                 <a class="dropdown-item" href="{{url('/profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Pengaturan
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">

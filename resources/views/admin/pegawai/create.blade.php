@@ -1,31 +1,18 @@
 @extends('sbadmin/master')
-@section('title', 'guru')
+@section('title', 'pegawai')
 
 @section('content')
 
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h1 class="h3 mb-4 text-gray-800">Data Guru</h1>
+            <h1 class="h3 mb-4 text-gray-800">Data Pegawai</h1>
         </div>
         <div class="card-body">
-            <form action="/guru" method="POST">
+            <form action="{{url('admin/pegawai')}}" method="POST">
         @csrf
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="idUsers">User</label>
-                        <select id="idUsers" name="idUsers"
-                            class="form-control @error('idUsers') is-invalid @enderror select2bs4">
-                            <option>-- Pilih Username --</option>
-                            @foreach ($users as $data)
-                                {{-- <option value="{{ $data->idUsers }}">{{ $data->nama_guru }}</option> --}}
-                                <option value="{{ $data->idUsers }}">{{ $data->username }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="nip">NIP</label>
@@ -37,7 +24,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nama_guru">Nama Guru</label>
+                        <label for="nama_guru">Nama Pegawai</label>
                         <input type="text" class="form-control" id="nama_guru" name="nama_guru">
                         @error('nama_guru')
                             <small class="text-danger">{{ $message }}</small>
@@ -90,9 +77,18 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" id="status" name="status">
+                        @error('status')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
-            <a href="/guru" class="btn btn-secondary ">Kembali</a>
+            <a href="{{url('admin/pegawai/index')}}" class="btn btn-secondary ">Kembali</a>
 
         </div>
     </form>

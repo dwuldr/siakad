@@ -3,9 +3,13 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">Edit Jadwal</h1>
 
-    <form action="{{ route('jadwal.update', $jadwal->idJadwal)}}"method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Edit Jadwal</h1>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('jadwal.update', $jadwal->idJadwal)}}"method="POST">
         @csrf
         @method('PUT')
         <div class="container">
@@ -37,6 +41,21 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="hari">Hari</label>
+                            <select class="form-control" name="hari" id="hari">
+                                <option>--Pilihan--</option>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jum`at">Jum`at</option>
+                                <option value="Sabtu">Sabtu</option>
+
+                            </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="jam_mulai">Jam Mulai</label>
                     <input type="time" value="{{$jadwal->jam_mulai}}" class="form-control" id="jam_mulai" name="jam_mulai">
@@ -56,4 +75,9 @@
         <button type="submit" class="btn btn-primary">Edit</button>
         <a href="/jadwal" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+
+
+

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKelasTable extends Migration
+class CreateSemesterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateKelasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
-            $table->bigIncrements('idKelas');
-			$table->unsignedBigInteger('idGuru');
-            $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama_kelas', 50);
+        Schema::create('semester', function (Blueprint $table) {
+            $table->bigIncrements('idSemester');
+            $table->string('tahun_ajaran');
+            $table->date('tgl_efektif');
+            $table->enum('keterangan', ['ganjil', 'genap']);
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +29,6 @@ class CreateKelasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('semester');
     }
 }

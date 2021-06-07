@@ -17,16 +17,16 @@ class User extends Authenticatable
      */
     protected $primaryKey = 'idUsers';
     protected $fillable = [
-        'username', 'idPegawai', 'idSiswa','password_2', 'level',
+        'idSiswa', 'idPegawai', 'username', 'password_2', 'level',
     ];
 
-    public function guru()
+    public function pegawai()
     {
-        return $this->belongsToMany('App\Guru', 'idPegawai', 'idPegawai');
+        return $this->belongsTo('App\Pegawai', 'idPegawai');
     }
     public function siswa()
     {
-        return $this->belongsToMany('App\Siswa', 'idSiswa', 'idSiswa');
+        return $this->belongsTo('App\Siswa', 'idSiswa');
     }
 
     protected $hidden = [

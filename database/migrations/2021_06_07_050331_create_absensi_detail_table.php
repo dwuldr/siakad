@@ -19,9 +19,7 @@ class CreateAbsensiDetailTable extends Migration
             $table->foreign('idAbsensi')->references('idAbsensi')->on('absensi')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idSiswa')->unsigned();
             $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('sakit', 5);
-            $table->string('izin', 5);
-            $table->string('alpha', 5);
+            $table->enum('keterangan', ['sakit', 'izin', 'alpha']);
             $table->timestamps();
         });
     }

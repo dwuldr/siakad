@@ -12,37 +12,37 @@
     <title>Sistem Informasi Akademik</title>
 
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="/template/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="{{asset('template/images/favicon.png')}}" type="image/png">
 
     <!--====== Slick css ======-->
-    <link rel="stylesheet" href="/template/css/slick.css">
+    <link rel="stylesheet" href="{{asset('template/css/slick.css')}}">
 
     <!--====== Animate css ======-->
-    <link rel="stylesheet" href="/template/css/animate.css">
+    <link rel="stylesheet" href="{{asset('template/css/animate.css')}}">
 
     <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="/template/css/nice-select.css">
+    <link rel="stylesheet" href="{{asset('template/css/nice-select.css')}}">
 
     <!--====== Nice Number css ======-->
-    <link rel="stylesheet" href="/template/css/jquery.nice-number.min.css">
+    <link rel="stylesheet" href="{{asset('template/css/jquery.nice-number.min.css')}}">
 
     <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="/template/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('template/css/magnific-popup.css')}}">
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="/template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('template/css/bootstrap.min.css')}}">
 
     <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="/template/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('template/css/font-awesome.min.css')}}">
 
     <!--====== Default css ======-->
-    <link rel="stylesheet" href="/template/css/default.css">
+    <link rel="stylesheet" href="{{asset('template/css/default.css')}}">
 
     <!--====== Style css ======-->
-    <link rel="stylesheet" href="/template/css/style.css">
+    <link rel="stylesheet" href="{{asset('template/css/style.css')}}">
 
     <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="/template/css/responsive.css">
+    <link rel="stylesheet" href="{{asset('template/css/responsive.css')}}">
 
 
 </head>
@@ -76,8 +76,8 @@
                     <div class="col-lg-6">
                         <div class="header-contact text-lg-left text-center">
                             <ul>
-                                <li><img src="/template/images/all-icon/map.png" alt="icon"><span>JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</span></li>
-                                <li><img src="/template/images/all-icon/email.png" alt="icon"><span>mtsroudlatul@gmail.com</span></li>
+                                <li><img src="{{asset('template/images/all-icon/map.png')}}" alt="icon"><span>JL.RAYA PARANG-SAMPUNG KM.2 DS.BUNGKUK, KEC.PARANG</span></li>
+                                <li><img src="{{asset('template/images/all-icon/email.png')}}" alt="icon"><span>mtsroudlatul@gmail.com</span></li>
                             </ul>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
                             <a href="index-2.html">
-                                <img src="/template/images/logo mts-1.jpg" alt="Logo">
+                                <img src="{{asset('template/images/logo mts-1.jpg')}}" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <div class="support-button float-right d-none d-md-block">
                             <div class="support float-left">
                                 <div class="icon">
-                                    <img src="/template/images/all-icon/support.png" alt="icon">
+                                    <img src="{{asset('template/images/all-icon/support.png')}}" alt="icon">
                                 </div>
                                 <div class="cont">
                                     <span>321 325 5678</span>
@@ -150,7 +150,7 @@
                                         <a href="/register">PPDB ONLINE</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/login">LOGIN</a>
+                                        <a href="{{url('login')}}">LOGIN</a>
                                     </li>
 
                                 </ul>
@@ -254,7 +254,7 @@
                             <li>
                                 <div class="singel-feature">
                                     <div class="icon">
-                                        <img src="/template/images/all-icon/f-1.png" alt="icon">
+                                        <img src="{{asset('template/images/all-icon/f-1.png')}}" alt="icon">
                                     </div>
                                     <div class="cont">
                                         <h5>Nama Sekolah</h5>
@@ -312,28 +312,28 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/guru1.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/guru1.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/guru2.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/guru2.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/guru3.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/guru3.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/guru4.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/guru4.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
@@ -369,56 +369,56 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa1.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa1.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa2.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa2.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa3.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa3.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa4.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa4.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa5.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa5.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa6.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa6.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa7.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa7.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="/template/images/teachers/siswa8.jpg" alt="Teachers">
+                                        <img src="{{asset('template/images/teachers/siswa8.jpg')}}" alt="Teachers">
                                     </div>
                                 </div> <!-- singel teachers -->
                             </div>
@@ -446,7 +446,7 @@
                 <div class="col-lg-6">
                     <div class="singel-news mt-30">
                         <div class="news-thum pb-25">
-                            <img src="/template/images/news/mts-hut.jpg" alt="News">
+                            <img src="{{asset('template/images/news/mts-hut.jpg')}}" alt="News">
                         </div>
                         <div class="news-cont">
 
@@ -460,7 +460,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/mts-studytour.jpg" alt="News">
+                                    <img src="{{asset('template/images/news/mts-studytour.jpg')}}" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -475,7 +475,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/mts-pramuka.jpg" alt="News">
+                                    <img src="{{asset('template/images/news/mts-pramuka.jpg')}}" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -490,7 +490,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/mts-drumband.jpg" alt="News">
+                                    <img src="{{asset('template/images/news/mts-drumband.jpg')}}" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -505,7 +505,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/keg-perpisahan.jpg" alt="News">
+                                    <img src="{{asset('template/images/news/keg-perpisahan.jpg')}}" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -520,7 +520,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="/template/images/news/keg-qurban.jpg" alt="News">
+                                    <img src="{{asset('template/images/news/keg-qurban.jpg')}}" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -644,43 +644,43 @@
 
 
     <!--====== jquery js ======-->
-    <script src="/template/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="/template/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{{asset('template/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{asset('template/js/vendor/jquery-1.12.4.min.js')}}"></script>
 
     <!--====== Bootstrap js ======-->
-    <script src="/template/js/bootstrap.min.js"></script>
+    <script src="{{asset('template/js/bootstrap.min.js')}}"></script>
 
     <!--====== Slick js ======-->
-    <script src="js/slick.min.js"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
 
     <!--====== Magnific Popup js ======-->
-    <script src="/template/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('template/js/jquery.magnific-popup.min.js')}}"></script>
 
     <!--====== Counter Up js ======-->
-    <script src="/template/js/waypoints.min.js"></script>
-    <script src="/template/js/jquery.counterup.min.js"></script>
+    <script src="{{asset('template/js/waypoints.min.js')}}"></script>
+    <script src="{{asset('template/js/jquery.counterup.min.js')}}"></script>
 
     <!--====== Nice Select js ======-->
-    <script src="/template/js/jquery.nice-select.min.js"></script>
+    <script src="{{asset('template/js/jquery.nice-select.min.js')}}"></script>
 
     <!--====== Nice Number js ======-->
-    <script src="/template/js/jquery.nice-number.min.js"></script>
+    <script src="{{asset('template/js/jquery.nice-number.min.js')}}"></script>
 
     <!--====== Count Down js ======-->
-    <script src="/template/js/jquery.countdown.min.js"></script>
+    <script src="{{asset('template/js/jquery.countdown.min.js')}}"></script>
 
     <!--====== Validator js ======-->
-    <script src="/template/js/validator.min.js"></script>
+    <script src="{{asset('template/js/validator.min.js')}}"></script>
 
     <!--====== Ajax Contact js ======-->
-    <script src="/template/js/ajax-contact.js"></script>
+    <script src="{{asset('template/js/ajax-contact.js')}}"></script>
 
     <!--====== Main js ======-->
-    <script src="/template/js/main.js"></script>
+    <script src="{{asset('template/js/main.js')}}"></script>
 
     <!--====== Map js ======-->
     <script src="/template/https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="/template/js/map-script.js"></script>
+    <script src="{{asset('template/js/map-script.js')}}"></script>
 
 </body>
 </html>

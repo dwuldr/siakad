@@ -2,10 +2,12 @@
 @section('title', 'siswa')
 
 @section('content')
-
-    <h1 class="h3 mb-4 text-gray-800">Siswa</h1>
-
-    <form action="/siswa" method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Data Siswa</h1>
+        </div>
+        <div class="card-body">
+           <form action="/siswa" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -108,4 +110,8 @@
             <a href="/siswa" class="btn btn-secondary btn-sm">Kembali</a>
         </div>
     </form>
+        </div>
+    </div>
 @endsection
+
+

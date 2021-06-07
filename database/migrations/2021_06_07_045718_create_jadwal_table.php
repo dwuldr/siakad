@@ -15,12 +15,14 @@ class CreateJadwalTable extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->bigIncrements('idJadwal');
+            $table->bigInteger('idSemester')->unsigned();
+            $table->foreign('idSemester')->references('idSemester')->on('semester')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('idPegawai')->unsigned();
+            $table->foreign('idPegawai')->references('idPegawai')->on('pegawai')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idMapel')->unsigned();
             $table->foreign('idMapel')->references('idMapel')->on('mapel')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idKelas')->unsigned();
             $table->foreign('idKelas')->references('idKelas')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('idGuru')->unsigned();
-            $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum`at', 'Sabtu']);
             $table->time('jam_mulai');
             $table->time('jam_selesai');

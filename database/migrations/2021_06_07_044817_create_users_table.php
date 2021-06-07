@@ -15,9 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('idUsers');
+            $table->unsignedBigInteger('idPegawai');
+            $table->foreign('idPegawai')->references('idPegawai')->on('pegawai')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('idSiswa');
+            $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
             $table->string('username');
             $table->string('password_2');
-            $table->string('level')->nullable();
+            $table->enum('level', ['Admin', 'Pegawai', 'Siswa'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

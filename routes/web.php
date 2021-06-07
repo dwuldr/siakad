@@ -26,10 +26,15 @@ Route::get('/guru', function () {
     return view('admin/guru');
 });
 
-Route::get('keluar',function(){
-    Auth::logout();
-    return redirect('/login');
-});
+Route::get('admin/pegawai/index', 'PegawaiController@index');
+Route::get('admin/pegawai/create', 'PegawaiController@create');
+Route::post('admin/pegawai', 'PegawaiController@store');
+Route::get('admin/pegawai/edit/{id}', 'PegawaiController@edit');
+Route::patch('admin/pegawai/{id}', 'PegawaiController@update');
+// Route::get('keluar',function(){
+//     Auth::logout();
+//     return redirect('/login');
+// });
 
 Auth::routes();
 Route::get('/login', 'login@loginPage');

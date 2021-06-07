@@ -7,25 +7,25 @@ use Illuminate\Database\Migrations\Migration;
 class CreateNilaiTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Run
+     * @retuthe migrations.
+     *rn void
      */
     public function up()
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->bigIncrements('idNilai');
             $table->bigInteger('idMapel')->unsigned();
+            $table->bigInteger('idPegawai')->unsigned();
+            $table->foreign('idPegawai')->references('idPegawai')->on('pegawai')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('idMapel')->references('idMapel')->on('mapel')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('idGuru')->unsigned();
-            $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('idSiswa')->unsigned();
             $table->foreign('idSiswa')->references('idSiswa')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
             $table->string('kkm', 5);
             $table->string('nilai_akademik', 5);
-            $table->string('deskripsi_akademik', 5);
+            $table->string('deskripsi_akademik', 100);
             $table->string('nilai_kreatifitas', 5);
-            $table->string('deskripsi_kreatifitas', 5);
+            $table->string('deskripsi_kreatifitas', 100);
             $table->softDeletes();
             $table->timestamps();
         });

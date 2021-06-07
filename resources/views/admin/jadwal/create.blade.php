@@ -3,9 +3,13 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">Guru</h1>
 
-    <form action="/jadwal" method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Data Guru</h1>
+        </div>
+        <div class="card-body">
+            <form action="/jadwal" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -70,4 +74,7 @@
         <button type="submit" class="btn btn-primary">Tambah</button>
         <a href="/jadwal" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+

@@ -3,9 +3,13 @@
 
 @section('content')
 
-    <h1 class="h3 mb-4 text-gray-800">Nilai</h1>
 
-    <form action="/nilai" method="POST">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h3 mb-4 text-gray-800">Nilai</h1>
+        </div>
+        <div class="card-body">
+            <form action="/nilai" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -65,4 +69,8 @@
         <button type="submit" class="btn btn-primary">Tambah</button>
         <a href="/nilai" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
+        </div>
+    </div>
 @endsection
+
+

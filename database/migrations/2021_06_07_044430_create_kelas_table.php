@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AbsensiDetail extends Migration
+class CreateKelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class AbsensiDetail extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('kelas', function (Blueprint $table) {
+            $table->bigIncrements('idKelas');
+            $table->string('nama_kelas', 50)->unique();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class AbsensiDetail extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('kelas');
     }
 }
