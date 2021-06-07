@@ -15,11 +15,8 @@ class CreateKelasTable extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->bigIncrements('idKelas');
-			$table->unsignedBigInteger('idGuru');
-            $table->foreign('idGuru')->references('idGuru')->on('guru')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama_kelas', 50);
+            $table->string('nama_kelas', 50)->unique();
             $table->timestamps();
-
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExkulTable extends Migration
+class CreateSemesterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateExkulTable extends Migration
      */
     public function up()
     {
-        Schema::create('exkul', function (Blueprint $table) {
-            $table->bigIncrements('idExkul');
-            $table->string('nama_exkul');
-			$table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum`at', 'Sabtu', 'Minggu']);
-			$table->time('waktu');
+        Schema::create('semester', function (Blueprint $table) {
+            $table->bigIncrements('idSemester');
+            $table->string('tahun_ajaran');
+            $table->date('tgl_efektif');
+            $table->enum('keterangan', ['ganjil', 'genap']);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateExkulTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exkul');
+        Schema::dropIfExists('semester');
     }
 }

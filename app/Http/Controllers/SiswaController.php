@@ -156,4 +156,10 @@ class SiswaController extends Controller
         $siswa = Siswa::all();
         return view('siswa.absen', compact('siswa'));
     }
+
+    public function jadwal()
+    {
+
+    }
 }
+
