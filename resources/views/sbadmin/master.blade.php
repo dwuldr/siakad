@@ -78,11 +78,7 @@
 
             <!-- Heading -->
             <li class="nav-item">
-<<<<<<< HEAD
-                <a class="nav-link" href="{{url('admin/nilai/index')}}">
-=======
                 <a class="nav-link" href="{{url('/raport/kelas')}}">
->>>>>>> 98abfdc9c06625c14c9c5d66b49f450d721c4adc
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Raport Siswa</span></a>
             </li>
@@ -293,5 +289,5 @@
     <script src="{{asset("vendor/sbadmin/js/demo/chart-pie-demo.js")}}"></script>
 
 </body>
-
+@include('sweetalert::alert')
 </html>

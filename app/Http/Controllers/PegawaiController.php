@@ -7,10 +7,13 @@ use DB;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PegawaiController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $pegawai = Pegawai::all();
         return view('admin/pegawai/index', compact('pegawai'));
     }
@@ -21,6 +24,7 @@ class PegawaiController extends Controller
     }
 
     public function store(Request $request){
+        toast('Data Berhasil Ditambahkan!','success');
         $request->validate([
             'nama_guru' => 'required',
             'jk' => 'required',
@@ -47,7 +51,9 @@ class PegawaiController extends Controller
         return view('admin/pegawai/edit', compact('pegawai', 'idPegawai'));
     }
 
-    public function update(Request $request, $idPegawai){
+    public function update(Request $request, $idPegawai)
+    {
+        Alert::success('Data Berhasil Diubah', 'Success');
         Pegawai::where('idPegawai', $idPegawai)
         ->update([
             'nip' => $request->nip,
@@ -70,9 +76,12 @@ class PegawaiController extends Controller
 
     public function destroy($id)
     {
+
+        toast('Data Berhasil Dihapus!','success');
         $pegawai = Pegawai::find($id);
         $pegawai->delete();
         return redirect('admin/pegawai/index');
+
     }
 
 }

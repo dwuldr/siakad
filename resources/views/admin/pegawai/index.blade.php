@@ -41,7 +41,7 @@
                                         <a class="btn btn-warning" href="{{url('admin/pegawai/edit/'.$row->idPegawai)}}">
                                             <i class="fa fa-edit"></i></a>
 
-                                    <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
+                                    <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?') Alert::question('Question Title', 'Question Message');"
                                         action="{{url('admin/pegawai/destroy/'.$row->idPegawai)}}">
                                         {{ csrf_field() }}
                                         @method('delete')
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-
+        @include('sweetalert::alert')
     </div>
 @endsection
 
