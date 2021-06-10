@@ -24,7 +24,7 @@ class Admin
         if(Auth::user()->level=="Admin"){
           return $next($request);
         }
-        else if(Auth::user()->level=="Guru"){
+        else if(Auth::user()->level=="Pegawai"){
           return redirect()->route('guru');
         }
         else if(Auth::user()->level=="Siswa"){

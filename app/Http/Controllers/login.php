@@ -24,6 +24,7 @@ class login extends Controller
         ]);
 
         $cek = User::where('username', $request['username'])->first();
+
         if ($cek) {
             if (password_verify($request->password, $cek->password_2)) {
                 session()->put('status', true);
@@ -32,23 +33,23 @@ class login extends Controller
                 session()->put('idUsers', $cek->idUsers);
                 Auth::login(User::find($cek->idUsers));
                 if ($cek->level == 'Admin') {
+
                     session()->put('id', $cek->idUsers);
-                } else if ($cek->level == 'Guru') {
-                    $dt = Guru::where('idUsers', $cek->idUsers)->first();
-                    session()->put('id', $dt->idGuru);
+                } else if ($cek->level == 'Pegawai') {
+                    session()->put('id', $cek->idPegawai);
+                    
                 } else if ($cek->level == 'Siswa') {
-                    $dt = Siswa::where('idUsers', $cek->idUsers)->first();
-                    session()->put('id', $dt->idSiswa);
+                    session()->put('id', $cek->idSiswa);
                 }
 
 
                 return redirect('/home');
             } else {
-                return 'Password salah';
+
                 return redirect('/login')->with('message', 'Password salah!');
             }
         } else {
-            return 'Username salah';
+
             return redirect('/login')->with('message', 'Username tidak ditemukan!');
         }
     }

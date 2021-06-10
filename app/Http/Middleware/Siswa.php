@@ -24,7 +24,7 @@ class Siswa
         if(Auth::user()->level=="Admin"){
           return redirect()->route('admin');
         }
-        else if(Auth::user()->level=="Guru"){
+        else if(Auth::user()->level=="Pegawai"){
           return redirect()->route('guru');
         }
         else if(Auth::user()->level=="Siswa"){

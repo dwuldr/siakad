@@ -85,7 +85,7 @@ class NilaiController extends Controller
                 'deskripsi_akademik' => $request['deskripsi_akademik'],
                 'nilai_kreatifitas' => $request['nilai_kreatifitas'],
                 'deskripsi_kreatifitas' => $request['deskripsi_kreatifitas'],
-                'idGuru' => session('id'),
+                'idPegawai' => session('id'),
             ]);
             return redirect(url('listSiswa/'.$request['idJadwal']))->with('alert', 'Berhasil input nilai');
         } catch (\Throwable $th) {
@@ -115,7 +115,7 @@ class NilaiController extends Controller
     {
         $nilai = new Nilai();
         $nilai->idMapel = $request->get("idMapel");
-        $nilai->idGuru = $request->get("idGuru");
+        $nilai->idPegawai = $request->get("idGuru");
         $nilai->idSiswa = $request->get("idSiswa");
         $nilai->nilai_harian = $request->get("nilai_harian");
         $nilai->nilai_uts = $request->get("nilai_uts");
@@ -163,7 +163,7 @@ class NilaiController extends Controller
     {
         $nilai = Nilai::findOrFail($idNilai);
         $nilai->idMapel = $request->get('idMapel');
-        $nilai->idGuru = $request->get('idGuru');
+        $nilai->idPegawai = $request->get('idGuru');
         $nilai->idSiswa = $request->get('idSiswa');
         $nilai->nilai_harian = $request->get("nilai_harian");
         $nilai->nilai_uts = $request->get("nilai_uts");

@@ -21,7 +21,7 @@ class Guru
 
         if (Auth::user()->level == "Admin") {
             return redirect()->route('admin');
-        } else if (Auth::user()->level == "Guru") {
+        } else if (Auth::user()->level == "Pegawai") {
             return $next($request);
         } else if (Auth::user()->level == "Siswa") {
             return redirect()->route('siswa');

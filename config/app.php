@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -165,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -175,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+
 
     ],
 
@@ -226,7 +228,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+=======
+        'Helper' => App\Helpers\Helper::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+>>>>>>> 98abfdc9c06625c14c9c5d66b49f450d721c4adc
 
     ],
 
