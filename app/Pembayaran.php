@@ -10,7 +10,7 @@ class Pembayaran extends Model
 {
     protected $table = 'pembayaran';
     protected $primaryKey = 'idPembayaran';
-    protected $fillable = ['idSiswa', 'tgl', 'jenis_pembayaran', 'jumlah_bayar'];
+    protected $fillable = ['idSiswa', 'tgl', 'jenis_bayar', 'jumlah_bayar'];
 
     public function siswa()
     {

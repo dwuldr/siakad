@@ -9,12 +9,8 @@ class Kelas extends Model
 {
     protected $table = 'kelas';
     protected $primaryKey = 'idKelas';
-    protected $fillable = ['idGuru', 'nama_kelas' ];
+    protected $fillable = ['nama_kelas' ];
 
-    public function guru()
-    {
-        return $this->belongsTo('App\Guru')->withDefault();
-    }
 
     public function jadwal()
     {

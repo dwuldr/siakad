@@ -14,10 +14,12 @@ class PegawaiController extends Controller
         $pegawai = Pegawai::all();
         return view('admin/pegawai/index', compact('pegawai'));
     }
+
     public function create(){
         $pegawai = Pegawai::all();
         return view('admin/pegawai/create', compact('pegawai'));
     }
+
     public function store(Request $request){
         $request->validate([
             'nama_guru' => 'required',
@@ -39,12 +41,14 @@ class PegawaiController extends Controller
         $pegawai->save();
         return redirect('admin/pegawai/index');
     }
-    public function edit($id){
-        $pegawai = Pegawai::where('idPegawai', $id)->first();
-        return view('admin/pegawai/edit', compact('pegawai', 'id'));
+
+    public function edit($idPegawai){
+        $pegawai = Pegawai::where('idPegawai', $idPegawai)->first();
+        return view('admin/pegawai/edit', compact('pegawai', 'idPegawai'));
     }
-    public function update(Request $request, $id){
-        Pegawai::where('idPegawai', $id)
+
+    public function update(Request $request, $idPegawai){
+        Pegawai::where('idPegawai', $idPegawai)
         ->update([
             'nip' => $request->nip,
             'nama_guru' => $request->nama_guru,
@@ -55,6 +59,19 @@ class PegawaiController extends Controller
             'telp' => $request->telp,
             'status' => $request->status,
         ]);
+        return redirect('admin/pegawai/index');
+    }
+
+    public function show($id)
+    {
+        $pegawai = Pegawai::find($id);
+        return view('admin/pegawai/show', compact('pegawai'));
+    }
+
+    public function destroy($id)
+    {
+        $pegawai = Pegawai::find($id);
+        $pegawai->delete();
         return redirect('admin/pegawai/index');
     }
 

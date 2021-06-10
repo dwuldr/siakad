@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kelas;
-use App\Guru;
-use App\Jadwal;
-use App\Siswa;
+use App\Semester;
+
 use Illumninate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 
-class KelasController extends Controller
+class SemesterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +17,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all();
-        return view("admin.kelas.index", compact('kelas'));
-
+        $semester = Semester::all();
+        return view("admin/semester/index", compact('semester'));
     }
 
     /**
@@ -31,8 +28,8 @@ class KelasController extends Controller
      */
     public function create()
     {
-        $kelas = Kelas::all();
-        return view('admin/kelas/create', compact('kelas'));
+        $semester = Semester::all();
+        return view('admin/semester/create', compact('semester'));
     }
 
     /**
@@ -43,11 +40,13 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        $kelas = new Kelas();
-        $kelas->nama_kelas = $request->get("nama_kelas");
-        $kelas->save();
-        $kelas = Kelas::all();
-        return redirect('admin/kelas/index');
+        $semester = new Semester();
+        $semester->tahun_ajaran = $request->get("tahun_ajaran");
+        $semester->tgl_efektif = $request->get("tgl_efektif");
+        $semester->keterangan = $request->get("keterangan");
+        $semester->save();
+        $semester = Semester::all();
+        return redirect('admin/semester/index');
     }
 
     /**
@@ -58,9 +57,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        $kelas = Kelas::where('idKelas', $id)->first();
-        $siswa = Siswa::where('idKelas', $id)->get();
-        return view('admin/kelas/show', compact('kelas', 'siswa'));
+        //
     }
 
     /**
@@ -71,10 +68,8 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-
-        $kelas = Kelas::where('idKelas', $id)->first();
-        return view('admin/kelas/edit', compact('kelas', 'id'));
-
+        $semester = Semester::where('idSemester', $id)->first();
+        return view('admin/semester/edit', compact('semester', 'id'));
     }
 
     /**
@@ -86,11 +81,13 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Kelas::where('idKelas', $id)
+        Semester::where('idSemester', $id)
         ->update([
-            'nama_kelas' => $request->nama_kelas,
+            'tahun_ajaran' => $request->tahun_ajaran,
+            'tgl_efektif' => $request->tgl_efektif,
+            'keterangan' => $request->keterangan,
         ]);
-        return redirect('admin/kelas/index');
+        return redirect('admin/semester/index');
     }
 
     /**
@@ -101,9 +98,8 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-
-        $kelas = Kelas::find($id);
-        $kelas->delete();
-        return redirect('admin/kelas/index');
+        $semester = Semester::find($id);
+        $semester->delete();
+        return redirect('admin/semester/index');
     }
 }

@@ -1,15 +1,15 @@
 @extends('sbadmin/master')
-@section('title', 'pegawai')
+@section('title', 'kelas')
 
 @section('content')
 {{session('sukses')}}
-    <h1 class="h3 mb-4 text-gray-800">Pegawai</h1>
+    <h1 class="h3 mb-4 text-gray-800">Data Siswa</h1>
     <div class="container-fluid">
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{ url('admin/pegawai/create') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Pegawai</a>
+                <a href="{{ url('admin/siswa/create') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -17,32 +17,39 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>NIP</th>
-                                <th>Nama Pegawai</th>
-                                <th>Jenis Kelamin</th>
+                                <th>NISN</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
                                 <th>Alamat</th>
+                                <th>Jenis Kelamin</th>
+                                <th>tmp_lahir</th>
+                                <th>tgl_lahir</th>
                                 <th>Telp/HP</th>
+                                <th>Nama OrangTua</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pegawai as $row)
+                            @foreach ($siswa as $row)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$row->nip}}</td>
-                                    <td>{{$row->nama_guru}}</td>
-                                    <td>{{$row->jk}}</td>
+                                    <td>{{$row->nis}}</td>
+                                    <td>{{$row->nama_siswa}}</td>
+                                    <td>{{$row->kelas->nama_kelas}}</td>
                                     <td>{{$row->alamat}}</td>
+                                    <td>{{$row->jk}}</td>
+                                    <td>{{$row->tmp_lahir}}</td>
+                                    <td>{{$row->tgl_lahir}}</td>
                                     <td>{{$row->telp}}</td>
-                                    <td>{{$row->status}}</td>
+                                    <td>{{$row->nama_ortu}}</td>
+                                    <td>{{$row->status_2}}</td>
                                     <td>
-                                        <a href="{{url('/admin/pegawai/show/'.$row->idPegawai)}}" class="btn btn-outline-primary"><i class="fas fa-search"></i></i></a>
-                                        <a class="btn btn-warning" href="{{url('admin/pegawai/edit/'.$row->idPegawai)}}">
+                                        <a class="btn btn-warning" href="{{url('admin/siswa/edit/'.$row->idSiswa)}}">
                                             <i class="fa fa-edit"></i></a>
 
                                     <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                        action="{{url('admin/pegawai/destroy/'.$row->idPegawai)}}">
+                                        action="{{url('admin/siswa/destroy/'.$row->idSiswa)}}">
                                         {{ csrf_field() }}
                                         @method('delete')
                                         <input type="hidden" value="DELETE" name="_method">

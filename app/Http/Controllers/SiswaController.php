@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
-use App\Siswa;
-use App\User;
-use App\Spp;
-use App\Pembayaran;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Str;
-use PDF;
-use App\Exports\SiswaExport;
-use App\Imports\SiswaImport;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\Controller;
+use App\Pegawai;
+use App\Kelas;
+use App\Siswa;
 
 class SiswaController extends Controller
 {
@@ -27,19 +20,10 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        $users = DB::table('users')->get();
-
-        $data = ['siswa' => $siswa, 'users' => $users];
-        return view("admin.siswa.index", compact('siswa'));
+        $kelas = Kelas::all();
+        return view('admin/siswa/index', compact('siswa', 'kelas'));
     }
 
-    public function siswa($idSiswa)
-    {
-        $siswa = Siswa::find($idSiswa);
-        return view('siswa.show', compact('siswa'));
-
-        return view('admin.siswa.index')->with('siswa',$idSiswa);
-    }
 
     public function dashboard()
     {
@@ -53,11 +37,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $siswa = Siswa::all();
-        $users = User::all();
-        // $data = [$users, $kelas, $spp];
-
-        return view("admin.siswa.create", compact('siswa', 'users'));
+        $kelas = Kelas::all();
+        return view('admin/siswa/create', compact('kelas'));
     }
 
     /**
@@ -68,20 +49,26 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa = new Siswa();
-        $siswa->idUsers = $request->get("idUsers");
-        $siswa->nis = $request->get("nis");
-        $siswa->nama_siswa = $request->get("nama_siswa");
-        $siswa->alamat = $request->get("alamat");
-        $siswa->jk = $request->get("jk");
-        $siswa->tmp_lahir = $request->get("tmp_lahir");
-        $siswa->tgl_lahir = $request->get("tgl_lahir");
-        $siswa->telp = $request->get("telp");
-        $siswa->nama_ortu = $request->get("nama_ortu");
-        $siswa->status_2 = $request->get("status_2");
-        $siswa->save();
-        $siswa = Siswa::all();
-        return redirect('siswa');
+        $request->validate([
+            'nama_siswa' => 'required',
+            'nis' => 'required',
+            'telp' => 'required',
+            'status_2' => 'required',
+            ]);
+
+            $siswa=new siswa;
+            $siswa->nama_siswa = $request->nama_siswa;
+            $siswa->jk = $request->jk;
+            $siswa->tmp_lahir = $request->tmp_lahir;
+            $siswa->tgl_lahir = $request->tgl_lahir;
+            $siswa->nis = $request->nis;
+            $siswa->idKelas = $request->idKelas;
+            $siswa->alamat = $request->alamat;
+            $siswa->telp = $request->telp;
+            $siswa->nama_ortu = $request->nama_ortu;
+            $siswa->status_2 = $request->status_2;
+            $siswa->save();
+            return redirect('admin/siswa/index');
     }
 
     /**
@@ -90,11 +77,11 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($idSiswa)
+    public function show($id)
     {
-        $idSiswa = Crypt::decrypt($idSiswa);
-        $siswa = Siswa::findorfail($idSiswa);
-        return view('admin.siswa.details', compact('siswa'));
+        $siswa = Siswa::where('idSiswa', $id)->first();
+        $kelas = Kelas::where('idKelas', $id)->get();
+        return view('admin/siswa/show', compact('siswa', 'kelas'));
     }
 
     /**
@@ -105,9 +92,9 @@ class SiswaController extends Controller
      */
     public function edit($idSiswa)
     {
-        $siswa = Siswa::findOrFail($idSiswa);
-        $users = User::all();
-        return view("admin.siswa.edit", compact('siswa', 'users'));
+        $kelas = Kelas::all();
+        $siswa = Siswa::where('idSiswa', $idSiswa)->first();
+        return view('admin/siswa/edit', compact('siswa', 'kelas', 'idSiswa'));
     }
 
     /**
@@ -117,21 +104,22 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idSiswa)
+    public function update(Request $request, $id)
     {
-        $siswa = Siswa::findOrFail($idSiswa);
-        $siswa->idUsers = $request->get('idUsers');
-        $siswa->nis = $request->get("nis");
-        $siswa->nama_siswa = $request->get("nama_siswa");
-        $siswa->alamat = $request->get("alamat");
-        $siswa->jk = $request->get("jk");
-        $siswa->tmp_lahir = $request->get("tmp_lahir");
-        $siswa->tgl_lahir = $request->get("tgl_lahir");
-        $siswa->telp = $request->get("telp");
-        $siswa->nama_ortu = $request->get("nama_ortu");
-        $siswa->status_2 = $request->get("status_2");
-        $siswa->save();
-        return redirect('siswa');
+       Siswa::where('idSiswa', $id)
+        ->update([
+            'nis' => $request->nis,
+            'nama_siswa' => $request->nama_siswa,
+            'idKelas' => $request->idKelas,
+            'alamat' => $request->alamat,
+            'jk' => $request->jk,
+            'tmp_lahir' => $request->tmp_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'telp' => $request->telp,
+            'nama_ortu' => $request->nama_ortu,
+            'status_2' => $request->status_2,
+        ]);
+        return redirect('admin/siswa/index');
     }
 
     /**
@@ -140,15 +128,11 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idSiswa)
+    public function destroy($id)
     {
-
-        $siswa = Siswa::find($idSiswa);
-        if(!$siswa) {
-            return redirect('siswa');
-        }
+        $siswa = Siswa::find($id);
         $siswa->delete();
-        return redirect('siswa');
+        return redirect('admin/siswa/index');
     }
 
     public function absensi()

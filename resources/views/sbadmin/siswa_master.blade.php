@@ -13,13 +13,13 @@
     <title>SIAKAD</title>
 
     <!-- Custom fonts for this template-->
-    <link href="/vendor/sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/sbadmin/vendor/fontawesome-free/css/all.min.css'adminlte/bower_components/bootstrap-colorpicker/bower.json)}}" rel="stylesheet" type="text/css">
     <link
-        href="/vendor/sbadmin/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+        href="{{asset('vendor/sbadmin/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet')}}">
 
     <!-- Custom styles for this template-->
-    <link href="/vendor/sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('vendor/sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SISWA <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">GURU <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -44,9 +44,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="{{url('dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Beranda</span></a>
             </li>
 
             <!-- Divider -->
@@ -65,6 +65,7 @@
                     <i class="fas fa-fw fa-file"></i>
                     <span>Nilai</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -144,19 +145,19 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Siswa</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guru</span>
                                 <img class="img-profile rounded-circle"
-                                    src="/vendor/sbadmin/img/undraw_profile.svg">
+                                    src="{{url('vendor/sbadmin/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{url('/profile')}}">
+                                <a class="dropdown-item" href="{{url('profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{url('logout')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Keluar
                                 </a>
@@ -222,21 +223,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/vendor/sbadmin/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url('vendor/sbadmin/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('vendor/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="/vendor/sbadmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{url('vendor/sbadmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="/vendor/sbadmin/js/sb-admin-2.min.js"></script>
+    <script src="{{url('vendor/sbadmin/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="/vendor/sbadmin/vendor/chart.js/Chart.min.js"></script>
+    <script src="{{url('vendor/sbadmin/vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/vendor/sbadmin/js/demo/chart-area-demo.js"></script>
-    <script src="/vendor/sbadmin/js/demo/chart-pie-demo.js"></script>
+    <script src="{{url('vendor/sbadmin/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{url('vendor/sbadmin/js/demo/chart-pie-demo.js')}}"></script>
 
 </body>
 

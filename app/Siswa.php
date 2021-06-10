@@ -9,11 +9,11 @@ class Siswa extends Model
 {
     protected $table = 'siswa';
     protected $primaryKey = 'idSiswa';
-    protected $fillable = ['idUsers', 'nis', 'nama_siswa', 'alamat', 'jk', 'tmp_lahir', 'tgl_lahir', 'telp', 'nama_ortu', 'status', 'nama_ortu', 'status_2'];
+    protected $fillable = ['idKelas', 'nis', 'nama_siswa', 'alamat', 'jk', 'tmp_lahir', 'tgl_lahir', 'telp', 'nama_ortu', 'status_2'];
 
-    public function users()
+    public function kelas()
     {
-        return $this->belongsTo('App\User', 'idUsers', 'idUsers');
+        return $this->belongsTo('App\Kelas', 'idKelas');
     }
 
     public function nilai()

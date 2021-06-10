@@ -1,5 +1,5 @@
 @extends('sbadmin/master')
-@section('title', 'tahun_ajaran')
+@section('title', 'semester')
 
 @section('content')
 {{session('sukses')}}
@@ -9,33 +9,35 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="/tahun_ajaran/create" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i> Tahun Akademik</a>
+                <a href="{{url('admin/semester/create')}}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i> Tahun Ajaran</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Tahun Ajaran</th>
+                                <th>Tanggal </th>
                                 <th>Semester</th>
-                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($tahun_ajaran as $idAjaran =>$ajaran)
+                            @foreach ($semester as $row)
                                 <tr>
-                                    <td>{{$ajaran->tahun_akademik}}</td>
-                                    <td>{{$ajaran->semester}}</td>
-                                    <td>{{$ajaran->status}}</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$row->tahun_ajaran}}</td>
+                                    <td>{{$row->tgl_efektif}}</td>
+                                    <td>{{$row->keterangan}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{route('tahun_ajaran.edit', ['id' => $ajaran->idAjaran])}}">
+                                        <a class="btn btn-warning" href="{{url('admin/semester/edit/'.$row->idSemester)}}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                            action="{{route('tahun_ajaran.destroy', ['id' => $ajaran->idAjaran ])}}">
-                                            @method('DELETE')
+                                            action="{{url('admin/semester/destroy/'.$row->idSemester)}}">
+                                            @method('delete')
                                             {{ csrf_field() }}
                                             <input type="hidden" value="DELETE" name="_method">
                                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

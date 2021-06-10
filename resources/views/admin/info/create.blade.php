@@ -9,7 +9,7 @@
             <h1 class="h3 mb-4 text-gray-800">Data Info</h1>
         </div>
         <div class="card-body">
-            <form action="/info" method="POST">
+            <form action="{{url('admin/info')}}" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
-        <a href="/info" class="btn btn-secondary btn-sm">Kembali</a>
+        <a href="{{url('admin/info/index')}}" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
         </div>
     </div>

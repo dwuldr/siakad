@@ -30,11 +30,8 @@ class PembayaranController extends Controller
     {
 
         $pembayaran = Pembayaran::all();
-        $siswa = DB::table('siswa')->get();
-
-        $data = ['pembayaran' => $pembayaran, 'siswa' => $siswa];
-        return view("admin.pembayaran.index", compact('data'));
-
+        $siswa = Kelas::all();
+        return view('admin/pembayaran/index', compact('pembayaran', 'siswa'));
     }
 
     /**
@@ -44,11 +41,8 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        $pembayaran = pembayaran::all();
         $siswa = Siswa::all();
-        // $data = [$users, $kelas, $spp];
-
-        return view("admin.pembayaran.create", compact('pembayaran', 'siswa'));
+        return view('admin/pembayaran/create', compact('siswa'));
     }
 
     /**
@@ -59,14 +53,19 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        $pembayaran = new Pembayaran();
-        $pembayaran->idSiswa = $request->get("idSiswa");
-        $pembayaran->tgl = $request->get("tgl");
-        $pembayaran->jenis_bayar = $request->get("jenis_bayar");
-        $pembayaran->jumlah_bayar = $request->get("jumlah_bayar");
-        $pembayaran->save();
-        $pembayaran = Pembayaran::all();
-        return redirect('pembayaran');
+        $request->validate([
+            'idSiswa' => 'required',
+            'tgl' => 'required',
+            'jenis_bayar' => 'required',
+            'jumlah_bayar' => 'required',
+            ]);
+            $pembayaran= new siswa;
+            $pembayaran->idSiswa = $request->idSiswa;
+            $pembayaran->tgl = $request->tgl;
+            $pembayaran->jenis_bayar = $request->jenis_bayar;
+            $pembayaran->jumlah_bayar = $request->jumlah_bayar;
+            $pembayaran->save();
+            return redirect('admin/pembayaran/index');
     }
 
     /**
@@ -88,9 +87,9 @@ class PembayaranController extends Controller
      */
     public function edit($idPembayaran)
     {
-        $pembayaran = Pembayaran::findOrFail($idPembayaran);
         $siswa = Siswa::all();
-        return view("admin.pembayaran.edit", compact('pembayaran', 'siswa'));
+        $pembayaran = Pembayaran::where('idPembayaran', $idPembayaran)->first();
+        return view('admin/pembayaran/edit', compact('pembayaran', 'siswa', 'idPembayaran'));
     }
 
     /**
@@ -108,7 +107,7 @@ class PembayaranController extends Controller
         $pembayaran->jenis_bayar = $request->get("jenis_bayar");
         $pembayaran->jumlah_bayar = $request->get("jumlah_bayar");
         $pembayaran->save();
-        return redirect('pembayaran');
+        return redirect('admin/pembayaran/index');
     }
 
     /**
@@ -117,13 +116,10 @@ class PembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idPembayaran)
+    public function destroy($id)
     {
-        $pembayaran = Pembayaran::find($idPembayaran);
-        if(!$pembayaran) {
-            return redirect('pembayaran');
-        }
+        $pembayaran = pembayaran::find($id);
         $pembayaran->delete();
-        return redirect('pembayaran');
+        return redirect('admin/pembayaran/index');
     }
 }

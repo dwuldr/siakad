@@ -64,11 +64,11 @@
                 <div id="master" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/pegawai/index')}}">Data Pegawai</a>
-                        <a class="collapse-item" href="{{asset('siswa')}}">Data Siswa</a>
-                        <a class="collapse-item" href="/tahun_ajaran">Data Tahun Akademik</a>
-                        <a class="collapse-item" href="/kelas">Data Kelas</a>
-                        <a class="collapse-item" href="/mapel">Data Mata Pelajaran</a>
-                        <a class="collapse-item" href="/jadwal">Data Jadwal Pelajaran</a>
+                        <a class="collapse-item" href="{{url('admin/siswa/index')}}">Data Siswa</a>
+                        <a class="collapse-item" href="{{url('admin/kelas/index')}}">Data Kelas</a>
+                        <a class="collapse-item" href="{{url('admin/jadwal/index')}}">Data Jadwal Pelajaran</a>
+                        <a class="collapse-item" href="{{url('admin/mapel/index')}}">Data Mata Pelajaran</a>
+                        <a class="collapse-item" href="{{url('admin/semester/index')}}">Data Tahun Akademik</a>
                         <a class="collapse-item" href="/exkul">Data Extrakulikuler</a>
                         <a class="collapse-item" href="/alumni">Data Alumni</a>
                     </div>
@@ -78,21 +78,21 @@
 
             <!-- Heading -->
             <li class="nav-item">
-                <a class="nav-link" href="/raport">
+                <a class="nav-link" href="{{url('admin/nilai/index')}}">
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Raport Siswa</span></a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/pembayaran">
+                <a class="nav-link" href="{{url('admin/pembayaran/index')}}">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>Pembayaran</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/info">
+                <a class="nav-link" href="{{url('admin/info/index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pengumuman</span></a>
             </li>

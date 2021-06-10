@@ -24,7 +24,7 @@ class InfoController extends Controller
     public function index()
     {
         $info = Info::all();
-        return view("admin.info.index", compact('info'));
+        return view("admin/info/index", compact('info'));
     }
 
     /**
@@ -34,7 +34,8 @@ class InfoController extends Controller
      */
     public function create()
     {
-        return view("admin.info.create");
+        $info = Info::all();
+        return view('admin/info/create', compact('info'));
     }
 
     /**
@@ -50,7 +51,7 @@ class InfoController extends Controller
         $info->pengumuman = $request->get("pengumuman");
         $info->save();
         $info = Info::all();
-        return view("admin.info.index", ["info" => $info]);
+        return redirect("admin/info/index");
     }
 
     /**
@@ -70,10 +71,11 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idInfo)
+    public function edit($id)
     {
-        $info = Info::findOrFail($idInfo);
-        return view("admin.info.edit", compact('info'));
+        $info = Info::all();
+        $info = Info::where('idInfo', $id)->first();
+        return view('admin/info/edit', compact( 'info'));
     }
 
     /**
@@ -83,14 +85,16 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idInfo)
+    public function update(Request $request, $id)
     {
-        $info = Info::findOrFail($idInfo);
+        $info = Info::findOrFail($id);
         $info->tgl = $request->get("tgl");
         $info->pengumuman = $request->get("pengumuman");
         $info->save();
-        return redirect("info");
+        return redirect("admin/info/index");
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -98,13 +102,10 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idInfo)
+    public function destroy($id)
     {
-        $info = Info::find($idInfo);
-        if(!$info) {
-            return redirect()->back();
-        }
+        $info = Info::find($id);
         $info->delete();
-        return redirect('info');
+        return redirect('admin/info/index');
     }
 }

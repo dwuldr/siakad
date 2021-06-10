@@ -3,13 +3,14 @@
 
 @section('content')
 {{session('sukses')}}
-    <h1 class="h3 mb-4 text-gray-800">MAPEL</h1>
-    <div class="container-fluid">
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4">
+    <div class="card shadow mb-4">
+        <h1 class="h3 mb-4 text-gray-800">MAPEL</h1>
+        <div class="container-fluid">
+
             <div class="card-header py-3">
-                <a href="/mapel/create" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Mapel</a>
+                <a href="{{url('admin/mapel/create')}}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,18 +24,18 @@
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($mapel as $idMapel =>$mapel)
+                            @foreach ($mapel as $row)
                                 <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{$mapel->nama_mapel}}</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$row->nama_mapel}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{route('mapel.edit', ['id' => $mapel->idMapel])}}">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
+                                        <a class="btn btn-warning" href="{{url('admin/mapel/edit/'.$row->idMapel)}}">
+                                            <i class="fa fa-edit"></i></a>
+
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                            action="{{route('mapel.destroy', ['id' => $mapel->idMapel ])}}">
-                                            @method('DELETE')
+                                            action="{{url('admin/mapel/destroy/'.$row->idMapel)}}">
                                             {{ csrf_field() }}
+                                            @method('delete')
                                             <input type="hidden" value="DELETE" name="_method">
                                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </form>

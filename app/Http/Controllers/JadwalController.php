@@ -28,13 +28,29 @@ class JadwalController extends Controller
      */
     public function index()
     {
+        $kelas = Kelas::all();
+        return view('admin/jadwal/index', compact('kelas'));
 
-        $jadwal = Jadwal::with('mapel')->get();
-        $mapel = DB::table('mapel')->get();
-
-        $data = ['jadwal' => $jadwal, 'mapel' => $mapel];
-        return view("admin.jadwal.index", compact('data'));
-
+    }
+    public function pilihSemester($id)
+    {
+        $semester = DB::table('semester')
+        // ->join('jadwal', 'jadwal.idSemester', '=', 'semester.idSemester')
+        // ->join('jadwal', 'jadwal.idKelas', '=', 'kelas.idKelas')
+        ->select('semester.*')
+        ->orderBy('semester.tgl_efektif')
+        // ->where('jadwal.idKelas', $request->session()->get('session_idKelas'))
+        // ->groupBy('semester.idSemester')
+        // ->groupBy('semester.tgl_efektif')
+        // ->groupBy('semester.keterangan')
+        ->get();
+        // ->join('jadwal', 'jadwal.idKelas', '=', 'kelas.idKelas')
+        // ->join('jadwal', 'jadwal.idSemester', '=', 'semester.idSemester')
+        // ->select('semester.*')
+        // ->orderBy('semester.tgl_efektif')
+        // ->where('jadwal.idSemester', $request->session()->get('session_idSemester'))
+        // ->get();
+        return view('admin/jadwal/pilihSemester', compact('semester', 'id'));
     }
 
     /**
@@ -81,7 +97,9 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelas = Kelas::where('idKelas', $id)->get();
+        $jadwal = Jadwal::where('idSemester',$id)->get();
+        return view('admin/jadwal/show', compact('jadwal', 'id'));
     }
 
     /**

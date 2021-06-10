@@ -67,7 +67,7 @@ class MapelController extends Controller
         $mapel->nama_mapel = $request->get("nama_mapel");
         $mapel->save();
         $mapel = Mapel::all();
-        return view("admin.mapel.index", ["mapel" => $mapel]);
+        return redirect("admin/mapel/index");
     }
 
     /**
@@ -90,7 +90,7 @@ class MapelController extends Controller
     public function edit($idMapel)
     {
         $mapel = Mapel::findOrFail($idMapel);
-        return view("admin.mapel.edit", compact('mapel'));
+        return view("admin/mapel/edit", compact('mapel'));
     }
 
     /**
@@ -105,7 +105,7 @@ class MapelController extends Controller
         $mapel = Mapel::findOrFail($idMapel);
         $mapel->nama_mapel = $request->get("nama_mapel");
         $mapel->save();
-        return redirect("mapel");
+        return redirect("admin/mapel/index");
     }
 
     /**
@@ -114,13 +114,10 @@ class MapelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idMapel)
+    public function destroy($id)
     {
-        $mapel = Mapel::find($idMapel);
-        if (!$mapel) {
-            return redirect()->back();
-        }
+        $mapel = Mapel::find($id);
         $mapel->delete();
-        return redirect('mapel');
+        return redirect('admin/mapel/index');
     }
 }

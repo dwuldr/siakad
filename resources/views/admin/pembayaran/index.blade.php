@@ -3,15 +3,13 @@
 
 @section('content')
 {{session('sukses')}}
-    <h1 class="h3 mb-4 text-gray-800">Pembayaran</h1>
+    <h1 class="h3 mb-4 text-gray-800">PEMBAYARAN</h1>
     <div class="container-fluid">
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{ url('pembayaran/create') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Pembayaran</a>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</a>
+                <a href="{{ url('admin/pembayaran/create') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -19,32 +17,33 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Siswa</th>
+                                <th>Nama Siswa</th>
                                 <th>Tanggal</th>
-                                <th>Jenis Pembayaran</th>
-                                <th>Jumlah Pembayaran</th>
+                                <th>Jenis Bayar</th>
+                                <th>Jumlah Bayar</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $i = 1 @endphp
-                            @foreach ($data['pembayaran'] as $idPembayaran =>$pembayaran)
+                            @foreach ($pembayaran as $row)
                                 <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{$pembayaran->siswa->nama_siswa }}</td>
-                                    <td>{{$pembayaran->tgl}}</td>
-                                    <td>{{$pembayaran->jenis_bayar}}</td>
-                                    <td>{{$pembayaran->jumlah_bayar}}</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$row->nama_siswa}}</td>
+                                    <td>{{$row->tgl}}</td>
+                                    <td>{{$row->jenis_bayar}}</td>
+                                    <td>{{$row->jumlah_bayar}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{route('pembayaran.edit', ['id' => $pembayaran->idPembayaran])}}">
+                                        <a class="btn btn-warning" href="{{url('admin/pembayaran/edit/'.$row->idPembayaran)}}">
                                             <i class="fa fa-edit"></i></a>
 
-                                    <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                        action="{{route('pembayaran.destroy', $pembayaran->idPembayaran)}}">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" value="DELETE" name="_method">
-                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form>
+                                        <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
+                                            action="{{url('admin/pembayaran/destroy/'.$row->idPembayaran)}}">
+                                            {{ csrf_field() }}
+                                            @method('delete')
+                                            <input type="hidden" value="DELETE" name="_method">
+                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

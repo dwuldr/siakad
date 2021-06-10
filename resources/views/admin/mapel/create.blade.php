@@ -9,7 +9,7 @@
             <h1 class="h3 mb-4 text-gray-800">Data Mapel</h1>
         </div>
         <div class="card-body">
-             <form action="/mapel" method="POST">
+             <form action="{{url('admin/mapel')}}" method="POST">
         @csrf
         <div class="container">
             <div class="col-md-6">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
-        <a href="/mapel" class="btn btn-secondary btn-sm">Kembali</a>
+        <a href="{{url('admin/mapel/index')}}" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
         </div>
     </div>
