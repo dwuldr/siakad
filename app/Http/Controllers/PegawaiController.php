@@ -83,5 +83,10 @@ class PegawaiController extends Controller
         return redirect('admin/pegawai/index');
 
     }
+    public function absensi()
+    {
+        $pegawai = Pegawai::all();
+        return view('pegawai.absen', compact('pegawai'));
+    }
 
 }

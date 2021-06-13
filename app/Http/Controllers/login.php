@@ -37,7 +37,7 @@ class login extends Controller
                     session()->put('id', $cek->idUsers);
                 } else if ($cek->level == 'Pegawai') {
                     session()->put('id', $cek->idPegawai);
-                    
+
                 } else if ($cek->level == 'Siswa') {
                     session()->put('id', $cek->idSiswa);
                 }
