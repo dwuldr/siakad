@@ -10,6 +10,10 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <a href="{{ url('admin/pegawai/create') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus"></i>  Tambah Pegawai</a>
+                <a href="{{ url('.....')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Export Excel</a>
+                <a href="{{ url('.....')}}" class="d-none d-sm-inline-block btn btn-sm btn btn-success btn-icon-split"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Import Excel</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -32,63 +32,63 @@ Route::get('keluar',function(){
     return redirect('/login');
 });
 
-//Auth::routes();
-//Route::get('/login', 'login@loginPage');
-//Route::post('/checklogin', 'login@Login');
-//Route::get('/admin','AdminController@dashboard')->name('admin')->middleware('admin');
-//Route::get('/guru','GuruController@dashboard_guru')->name('guru')->middleware(['auth', 'guru']);
-//Route::get('/siswa','SiswaController@dashboard')->name('siswa')->middleware('siswa');
-//Route::get('/home', 'HomeController@index');
-//Route::get('/logout', 'LoginController@logout');
-//Route::post('/daftar', 'Auth\RegisterController@register');
-//Route::get('/register', function () {
-   // return view('auth/register');
-//});
+Auth::routes();
+Route::get('/login', 'login@loginPage');
+Route::post('/checklogin', 'login@Login');
+Route::get('/admin','AdminController@dashboard')->name('admin')->middleware('admin');
+Route::get('/guru','GuruController@dashboard_guru')->name('guru')->middleware(['auth', 'guru']);
+Route::get('/siswa','SiswaController@dashboard')->name('siswa')->middleware('siswa');
+Route::get('/home', 'HomeController@index');
+Route::get('/logout', 'LoginController@logout');
+Route::post('/daftar', 'Auth\RegisterController@register');
+Route::get('/register', function () {
+    return view('auth/register');
+});
 
-//Route::post('/cek-email', 'UserController@email')->name('cek-email')->middleware('guest');
-//Route::get('/reset/password/{id}', 'UserController@password')->name('reset.password')->middleware('guest');
-//Route::patch('/reset/password/update/{id}', 'UserController@update_password')->name('reset.password.update')->middleware('guest');
+Route::post('/cek-email', 'UserController@email')->name('cek-email')->middleware('guest');
+Route::get('/reset/password/{id}', 'UserController@password')->name('reset.password')->middleware('guest');
+Route::patch('/reset/password/update/{id}', 'UserController@update_password')->name('reset.password.update')->middleware('guest');
 
-//Route::group(['middleware' =>['auth']], function() {
+Route::group(['middleware' =>['auth']], function() {
 
-    //Route::prefix('admin')->group(function () {
-        //Route::get('/', function() {
-         //   return view('admin/dashboard');
-        //})->name('home');
+    Route::prefix('admin')->group(function () {
+        Route::get('/', function() {
+            return view('admin/dashboard');
+        })->name('home');
 
-        //Route::prefix('user')->group(function () {
-            //Route::get('/', 'UserController@index')->name('admin/users')->middleware('admin');
-            //Route::get('/setting', 'UserController@create')->name('admin.users.create');
-            //Route::post('/setting', 'UserController@update')->name('admin.users.update');
-      //  });
-    //});
-    //Route::get('/profile', 'UserController@profile')->name('profile');
-    //Route::put('/profile/update', 'UserController@updateProfile');
-    //Route::put('/profile/guru/update', 'UserController@updateProfileGuru');
-    //Route::put('/profile/siswa/update', 'UserController@updateProfileSiswa');
+        Route::prefix('user')->group(function () {
+            Route::get('/', 'UserController@index')->name('admin/users')->middleware('admin');
+            Route::get('/setting', 'UserController@create')->name('admin.users.create');
+            Route::post('/setting', 'UserController@update')->name('admin.users.update');
+        });
+    });
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::put('/profile/update', 'UserController@updateProfile');
+    Route::put('/profile/guru/update', 'UserController@updateProfileGuru');
+    Route::put('/profile/siswa/update', 'UserController@updateProfileSiswa');
 
-    //Route::middleware(['guru'])->group(function () {
-        Route::get('pegawai/absen/harian', 'PegawaiController@absen')->name('absen.harian');
-        Route::post('pegawai/absen/simpan', 'PegawaiController@simpan')->name('absen.simpan');
-        Route::get('pegawai/jadwal/guru', 'JadwalController@guru')->name('jadwal.guru');
-        Route::get('pegawai/nilai', 'NilaiController@index');
-        Route::resource('pegawai/ulangan', 'UlanganController');
-        Route::resource('pegawai/sikap', 'SikapController');
-        Route::get('pegawai/rapot/predikat', 'RapotController@predikat');
-        Route::resource('pegawai/rapot', 'RapotController');
+    Route::middleware(['guru'])->group(function () {
+        Route::get('/absen/harian', 'PegawaiController@absen')->name('absen.harian');
+        Route::post('/absen/simpan', 'PegawaiController@simpan')->name('absen.simpan');
+        Route::get('/jadwal/guru', 'JadwalController@guru')->name('jadwal.guru');
+        Route::get('/nilai', 'NilaiController@index');
+        Route::resource('/ulangan', 'UlanganController');
+        Route::resource('/sikap', 'SikapController');
+        Route::get('/rapot/predikat', 'RapotController@predikat');
+        Route::resource('/rapot', 'RapotController');
 
-        Route::get('pegawai/absen', 'AbsenController@index');
-        Route::get('pegawai/absen/list/{id}', 'AbsenController@listAbsen');
-        Route::get('pegawai/absen/list/{idJadwal}/add/{idKelas}', 'AbsenController@listSiswa');
-        Route::post('pegawai/absen/save', 'AbsenController@store');
+        Route::get('/absen', 'AbsenController@index');
+        Route::get('/absen/list/{id}', 'AbsenController@listAbsen');
+        Route::get('/absen/list/{idJadwal}/add/{idKelas}', 'AbsenController@listSiswa');
+        Route::post('/absen/save', 'AbsenController@store');
 
-        Route::get('pegawai/listmapel', 'MapelController@listMapelByGuru');
-        Route::get('pegawai/listSiswa/{id}', 'NilaiController@listSiswa');
-        Route::get('pegawai/detailNilai/{idMapel}', 'NilaiController@detailNilai');
-        Route::post('pegawai/inputNilai', 'NilaiController@inputNilai');
-   // });
+        Route::get('/listmapel', 'MapelController@listMapelByGuru');
+        Route::get('/listSiswa/{id}', 'NilaiController@listSiswa');
+        Route::get('/detailNilai/{idMapel}', 'NilaiController@detailNilai');
+        Route::post('/inputNilai', 'NilaiController@inputNilai');
+    });
 
-    //Route::middleware(['admin'])->group(function () {
+    Route::middleware(['admin'])->group(function () {
         Route::get('admin/pegawai/index', 'PegawaiController@index');
         Route::get('admin/pegawai/create', 'PegawaiController@create');
         Route::post('admin/pegawai', 'PegawaiController@store');
@@ -154,5 +154,5 @@ Route::get('keluar',function(){
         Route::patch('admin/mapel/{id}', 'MapelController@update');
         Route::get('admin/mapel/show/{id}', 'MapelController@show');
         Route::delete('admin/mapel/destroy/{id}', 'MapelController@destroy');
-//    });
-//});
+    });
+});
