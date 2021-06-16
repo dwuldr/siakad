@@ -32,7 +32,7 @@
                                     <td>{{$row->tgl_efektif}}</td>
                                     <td>{{$row->keterangan}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{url('admin/semester/edit/'.$row->idSemester)}}">
+                                        <a class="btn btn-outline-warning" href="{{url('admin/semester/edit/'.$row->idSemester)}}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
@@ -40,7 +40,7 @@
                                             @method('delete')
                                             {{ csrf_field() }}
                                             <input type="hidden" value="DELETE" name="_method">
-                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

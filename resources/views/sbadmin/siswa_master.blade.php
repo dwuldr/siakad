@@ -55,13 +55,13 @@
             <!-- Heading -->
 
             <li class="nav-item">
-                <a class="nav-link" href="absen">
+                <a class="nav-link" href="{{url ('siswa/jadwal/lihat-jadwal')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jadwal</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/nilai_mapel">
+                <a class="nav-link" href="{{url ('siswa/lihat-nilai')}}">
                     <i class="fas fa-fw fa-file"></i>
                     <span>Nilai</span></a>
             </li>
@@ -145,7 +145,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guru</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Siswa</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{url('vendor/sbadmin/img/undraw_profile.svg')}}">
                             </a>

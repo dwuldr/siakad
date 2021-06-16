@@ -9,6 +9,7 @@
         <meta name="author" content="" />
         <title>SI Akademik - @yield('title')</title>
         <link href="vendor/sbadmin/bootstrap/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css">
         <script src="vendor/sbadmin/bootstrap/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">

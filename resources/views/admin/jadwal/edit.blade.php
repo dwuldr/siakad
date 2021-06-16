@@ -9,9 +9,9 @@
             <h1 class="h3 mb-4 text-gray-800">Edit Jadwal</h1>
         </div>
         <div class="card-body">
-            <form action="{{ route('jadwal.update', $jadwal->idJadwal)}}"method="POST">
-        @csrf
-        @method('PUT')
+            <form action="{{url('admin/jadwal/'.$idJadwal)}}" method="POST">
+                @method('patch')
+                @csrf
         <div class="container">
             <div class="col-md-6">
                 <div class="form-group">
@@ -33,11 +33,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="idGuru">Guru</label>
-                    <select id="idGuru" name="idGuru" class="form-control @error('idGuru') is-invalid @enderror select2bs4">
+                    <label for="idPegawai">Pegawai</label>
+                    <select id="idPegawai" name="idPegawai" class="form-control @error('idPegawai') is-invalid @enderror select2bs4">
                         <option value="">-- Pilih Guru --</option>
-                        @foreach($guru as $data)
-                            <option value="{{ $data->idGuru }}">{{ $data->nama_guru }}</option>
+                        @foreach($pegawai as $data)
+                            <option value="{{ $data->idPegawai }}">{{ $data->nama_guru }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="idSemester">Semester</label>
+                    <select id="idSemester" name="idSemester" class="form-control @error('idSemester') is-invalid @enderror select2bs4">
+                        <option value="">-- Pilih Semester --</option>
+                        @foreach($semester as $data)
+                            <option value="{{ $data->idSemester }}">{{ $data->tgl_efektif }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -58,22 +67,23 @@
                 </div>
                 <div class="form-group">
                     <label for="jam_mulai">Jam Mulai</label>
-                    <input type="time" value="{{$jadwal->jam_mulai}}" class="form-control" id="jam_mulai" name="jam_mulai">
+                    <input type="time" class="form-control" id="jam_mulai" name="jam_mulai">
                     @error('jam_mulai')
                         <small class="text-danger">{{ $message}}</small>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="jam_selesai">Jam Selesai</label>
-                    <input type="time" value="{{$jadwal->jam_selesai}}" class="form-control" id="jam_selesai" name="jam_selesai">
+                    <input type="time" class="form-control" id="jam_selesai" name="jam_selesai">
                     @error('jam_selesai')
                         <small class="text-danger">{{ $message}}</small>
                     @enderror
                 </div>
+
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Edit</button>
-        <a href="/jadwal" class="btn btn-secondary btn-sm">Kembali</a>
+        <a href="{{url('admin/jadwal/show')}}" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
         </div>
     </div>

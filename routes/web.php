@@ -78,6 +78,8 @@ Route::group(['middleware' =>['auth']], function() {
         Route::resource('/rapot', 'RapotController');
 
         Route::get('/absen', 'AbsenController@index');
+        Route::get('/absen/detail/{idAbsen}', 'AbsenController@show');
+        Route::get('/absen/cetak/{idAbsen}', 'AbsenController@getPdf');
         Route::get('/absen/list/{id}', 'AbsenController@listAbsen');
         Route::get('/absen/list/{idJadwal}/add/{idKelas}', 'AbsenController@listSiswa');
         Route::post('/absen/save', 'AbsenController@store');
@@ -88,7 +90,17 @@ Route::group(['middleware' =>['auth']], function() {
         Route::post('/inputNilai', 'NilaiController@inputNilai');
     });
 
+    Route::middleware(['siswa'])->group(function () {
+        Route::get('/siswa/jadwal/lihat-jadwal', 'SiswaController@lihatJadwal');
+        Route::get('/siswa/lihat-nilai', 'SiswaController@lihatNilai');
+    });
+
     Route::middleware(['admin'])->group(function () {
+        Route::get('/raport/kelas', 'RaportController@index');
+        Route::get('/raport/kelas/{idKelas}', 'RaportController@show');
+        Route::get('/raport/cetak/{idSiswa}', 'RaportController@cetak');
+
+
         Route::get('admin/pegawai/index', 'PegawaiController@index');
         Route::get('admin/pegawai/create', 'PegawaiController@create');
         Route::post('admin/pegawai', 'PegawaiController@store');
@@ -96,6 +108,10 @@ Route::group(['middleware' =>['auth']], function() {
         Route::patch('admin/pegawai/{idPegawai}', 'PegawaiController@update');
         Route::get('admin/pegawai/show/{id}', 'PegawaiController@show');
         Route::delete('admin/pegawai/destroy/{id}', 'PegawaiController@destroy');
+        Route::get('admin/pegawai/cetak-data-pegawai', 'PegawaiController@cetakPegawai')->name('cetak-data-pegawai');
+        Route::get('exportPegawai', 'PegawaiController@pegawaiexport')->name('exportPegawai');
+        Route::post('importPegawai', 'PegawaiController@pegawaiimportexcel')->name('importPegawai');
+
 
         Route::get('admin/siswa/index', 'SiswaController@index');
         Route::get('admin/siswa/create', 'SiswaController@create');
@@ -104,6 +120,9 @@ Route::group(['middleware' =>['auth']], function() {
         Route::patch('admin/siswa/{idSiswa}', 'SiswaController@update');
         Route::get('admin/siswa/show/{id}', 'SiswaController@show');
         Route::delete('admin/siswa/destroy/{id}', 'SiswaController@destroy');
+        Route::get('admin/siswa/cetak-data-siswa', 'SiswaController@cetakSiswa')->name('cetak-data-siswa');
+        Route::get('exportSiswa', 'SiswaController@siswaexport')->name('exportSiswa');
+        Route::post('importSiswa', 'SiswaController@siswaimportexcel')->name('importSiswa');
 
         Route::get('admin/kelas/index', 'KelasController@index');
         Route::get('admin/kelas/create', 'KelasController@create');
@@ -130,13 +149,16 @@ Route::group(['middleware' =>['auth']], function() {
         Route::delete('admin/pembayaran/destroy/{id}', 'PembayaranController@destroy');
 
         Route::get('admin/jadwal/index', 'JadwalController@index');
-        Route::get('admin/jadwal/show/{idKelas}/{id}', 'JadwalController@show');
-        Route::get('admin/jadwal/create/{id}', 'JadwalController@create');
+        Route::get('admin/jadwal/show/{idKelas}/{idJadwal}', 'JadwalController@show');
+        Route::get('admin/jadwal/create', 'JadwalController@create');
         Route::post('admin/jadwal', 'JadwalController@store');
         Route::get('admin/jadwal/pilihSemester/{id}', 'JadwalController@pilihSemester');
-        Route::get('admin/jadwal/edit/{id}', 'JadwalController@edit');
+        Route::get('admin/jadwal/edit/{idJadwal}', 'JadwalController@edit');
         Route::patch('admin/jadwal/{id}', 'JadwalController@update');
-        Route::delete('admin/jadwal/show/{idKelas}/{id}', 'JadwalController@destroy');
+        Route::get('admin/jadwal/detail/{id}', 'JadwalController@detail');
+        Route::delete('admin/jadwal/destroy/{idJadwal}', 'JadwalController@destroy');
+        Route::get('admin/cetak-jadwal', 'JadwalController@cetakForm')->name('cetak-jadwal');
+        Route::get('admin/jadwal/cetak-data-pertanggal/{tglawal}/{tglakhir}', 'JadwalController@cetakJadwalPertanggal')->name('cetak-data-pertanggal');
 
         Route::get('admin/semester/index', 'SemesterController@index');
         Route::get('admin/semester/pilihSemester', 'SemesterController@index');

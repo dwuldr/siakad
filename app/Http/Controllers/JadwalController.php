@@ -7,7 +7,8 @@ use Auth;
 use App\Jadwal;
 use App\Mapel;
 use App\Kelas;
-use App\Guru;
+use App\Pegawai;
+use App\Semester;
 use App\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
@@ -17,6 +18,7 @@ use App\Imports\SiswaImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class JadwalController extends Controller
@@ -61,12 +63,13 @@ class JadwalController extends Controller
     public function create()
     {
         $jadwal = Jadwal::all();
+        $semester = Semester::all();
         $mapel = Mapel::all();
         $kelas = Kelas::all();
-        $guru = Guru::all();
+        $pegawai = Pegawai::all();
         // $data = [$users, $kelas, $spp];
 
-        return view("admin.jadwal.create", compact('jadwal', 'mapel', 'kelas', 'guru'));
+        return view("admin.jadwal.create", compact('jadwal', 'semester', 'mapel', 'kelas', 'pegawai'));
     }
 
     /**
@@ -77,16 +80,24 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        $jadwal = new Jadwal();
-        $jadwal->idMapel = $request->get("idMapel");
-        $jadwal->idKelas = $request->get("idKelas");
-        $jadwal->idGuru = $request->get("idGuru");
-        $jadwal->hari = $request->get("hari");
-        $jadwal->jam_mulai = $request->get("jam_mulai");
-        $jadwal->jam_selesai = $request->get("jam_selesai");
-        $jadwal->save();
-        $jadwal = Jadwal::all();
-        return redirect('jadwal');
+       // $request->validate([
+         //   'nama_mapel' => 'required',
+           // 'nama_guru' => 'required',
+            //'hari' => 'required',
+            //'jam_mulai' => 'required',
+            //'jam_selesai' => 'required',
+            //]);
+            toast('Data Berhasil Ditambahkan!','success');
+            $jadwal=new jadwal;
+            $jadwal->idKelas = $request->idKelas;
+            $jadwal->idPegawai = $request->idPegawai;
+            $jadwal->idMapel = $request->idMapel;
+            $jadwal->idSemester = $request->idSemester;
+            $jadwal->hari = $request->hari;
+            $jadwal->jam_mulai = $request->jam_mulai;
+            $jadwal->jam_selesai = $request->jam_selesai;
+            $jadwal->save();
+            return redirect('admin/jadwal/show/{idKelas}/{idJadwal}');
     }
 
     /**
@@ -97,9 +108,14 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $kelas = Kelas::where('idKelas', $id)->get();
-        $jadwal = Jadwal::where('idSemester',$id)->get();
-        return view('admin/jadwal/show', compact('jadwal', 'id'));
+        $kelas = Kelas::all();
+        $jadwal = Jadwal::all();
+        $pegawai = Pegawai::all();
+        $semester = Semester::all();
+        return view('admin/jadwal/show', compact('kelas','jadwal','semester'));
+
+        // $kelas = Kelas::all();
+        // return view('admin/jadwal/index', compact('kelas'));
     }
 
     /**
@@ -110,11 +126,13 @@ class JadwalController extends Controller
      */
     public function edit($idJadwal)
     {
-        $jadwal = Jadwal::findOrFail($idJadwal);
+
+        $jadwal = Jadwal::where('idJadwal', $idJadwal)->first();
         $mapel = Mapel::all();
         $kelas = Kelas::all();
-        $guru = Guru::all();
-        return view("admin.jadwal.edit", compact('jadwal', 'mapel', 'kelas', 'guru'));
+        $pegawai = Pegawai::all();
+        $semester = Semester::all();
+        return view("admin.jadwal.edit", compact('idJadwal', 'semester', 'mapel', 'kelas', 'pegawai'));
     }
 
     /**
@@ -126,15 +144,18 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $idJadwal)
     {
-        $jadwal = Jadwal::findOrFail($idJadwal);
-        $jadwal->idMapel = $request->get('idMapel');
-        $jadwal->idKelas = $request->get('idKelas');
-        $jadwal->idGuru = $request->get('idGuru');
-        $jadwal->hari = $request->get('hari');
-        $jadwal->jam_mulai = $request->get("jam_mulai");
-        $jadwal->jam_selesai = $request->get("jam_selesai");
-        $jadwal->save();
-        return redirect('jadwal');
+        toast('Data Berhasil Diubah!','success');
+        Jadwal::where('idJadwal', $idJadwal)
+        ->update([
+            'idKelas' => $request->idKelas,
+            'idMapel' => $request->idMapel,
+            'idPegawai' => $request->idPegawai,
+            'idSemester' => $request->idSemester,
+            'hari' => $request->hari,
+            'jam_mulai' => $request->jam_mulai,
+            'jam_selesai' => $request->jam_selesai,
+        ]);
+        return redirect('admin/jadwal/show/{idKelas}/{idJadwal}');
     }
 
     /**
@@ -143,13 +164,40 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idJadwal)
+    public function destroy($id)
     {
-        $jadwal = Jadwal::find($idJadwal);
-        if(!$jadwal) {
-            return redirect('jadwal');
-        }
+        toast('Data Berhasil Dihapus!','success');
+        $jadwal = Jadwal::find($id);
         $jadwal->delete();
-        return redirect('jadwal');
+        return redirect('admin/jadwal/show/{idKelas}/{idJadwal}');
     }
+
+    public function cetakForm()
+    {
+        return view('admin.Jadwal.cetak-jadwal');
+    }
+
+    public function cetakJadwalPertanggal($tglawal, $tglakhir)
+    {
+           //dd([$tglawal, $tglakhir]);
+           $tglawal = $tglawal;
+           $tglakhir = $tglakhir;
+           $cetakPerTanggal = Jadwal::with('semester')->whereBetween('tgl_efektif', [$tglawal, $tglakhir]);
+           $pdf = PDF::loadview('admin/jadwal/cetak-data-pertanggal',compact('cetakPerTanggal', 'tglawal', 'tglakhir'));
+        //    return view('admin/jadwal/cetak-data-pertanggal', compact('cetakPertanggal'));
+
+        $pdf->setPaper("a4", 'potrait');
+        return $pdf->stream();
+    }
+
+    public function detail($id)
+    {
+        $jadwal = Jadwal::where('idJadwal', $id)->first();
+        $kelas = Kelas::where('idKelas', $id)->get();
+        $mapel = Mapel::where('idMapel', $id)->get();
+        $semester = Semester::where('idSemester', $id)->get();
+        $pegawai = Pegawai::where('idPegawai', $id)->get();
+        return view('admin/jadwal/detail', compact('jadwal', 'kelas', 'mapel', 'semester', 'pegawai'));
+    }
+
 }

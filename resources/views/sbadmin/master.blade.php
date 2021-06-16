@@ -20,6 +20,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('vendor/sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/sbadmin/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+
+    <link href="{{ asset('vendor/sbadmin/datatable/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+
 
 </head>
 
@@ -69,8 +74,6 @@
                         <a class="collapse-item" href="{{url('admin/jadwal/index')}}">Data Jadwal Pelajaran</a>
                         <a class="collapse-item" href="{{url('admin/mapel/index')}}">Data Mata Pelajaran</a>
                         <a class="collapse-item" href="{{url('admin/semester/index')}}">Data Tahun Akademik</a>
-                        <a class="collapse-item" href="/exkul">Data Extrakulikuler</a>
-                        <a class="collapse-item" href="/alumni">Data Alumni</a>
                     </div>
                 </div>
             </li>
@@ -201,10 +204,6 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="{{ url('/pengaturan') }}">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Pengaturan
-                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -287,6 +286,19 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('vendor/sbadmin/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset("vendor/sbadmin/js/demo/chart-pie-demo.js")}}"></script>
+
+    <script src="{{ asset('vendor/sbadmin/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/sbadmin/datatable/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('vendor/sbadmin/js/demo/datatables-demo.js') }}"></script>
+
+    {{-- <script type="text/javascript">
+    <script>
+    $ ( function () {
+        $('#data-table').DataTable();
+    })
+    </script> --}}
+
+
 
 </body>
 @include('sweetalert::alert')

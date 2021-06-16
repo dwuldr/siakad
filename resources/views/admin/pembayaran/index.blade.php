@@ -34,7 +34,7 @@
                                     <td>{{$row->jenis_bayar}}</td>
                                     <td>{{$row->jumlah_bayar}}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{url('admin/pembayaran/edit/'.$row->idPembayaran)}}">
+                                        <a class="btn btn-outline--warning" href="{{url('admin/pembayaran/edit/'.$row->idPembayaran)}}">
                                             <i class="fa fa-edit"></i></a>
 
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
@@ -42,7 +42,7 @@
                                             {{ csrf_field() }}
                                             @method('delete')
                                             <input type="hidden" value="DELETE" name="_method">
-                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

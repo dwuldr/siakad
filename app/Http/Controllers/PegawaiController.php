@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use App\Pegawai;
 use App\Users;
 use DB;
-
+use PDF;
+use App\Exports\PegawaiExport;
+use App\Imports\PegawaiImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -76,13 +79,41 @@ class PegawaiController extends Controller
 
     public function destroy($id)
     {
-
         toast('Data Berhasil Dihapus!','success');
         $pegawai = Pegawai::find($id);
         $pegawai->delete();
         return redirect('admin/pegawai/index');
 
     }
+
+    public function cetakPegawai()
+    {
+           //dd([$tglawal, $tglakhir]);
+
+           $pegawai = Pegawai::all();
+           $pdf = PDF::loadview('admin/pegawai/cetak-data-pegawai',['pegawai'=>$pegawai]);
+        // return view('admin.Pegawai.cetak-data-pegawai', compact('cetakPegawai'));
+
+        $pdf->setPaper("a4", 'potrait');
+        return $pdf->stream();
+    }
+
+    public function pegawaiexport()
+    {
+        return Excel::download(new PegawaiExport,'pegawai.xlsx');
+    }
+
+    public function pegawaiimportexcel(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataPegawai', $namaFile);
+
+        Excel::import(new PegawaiImport, public_path('/DataPegawai/', $namaFile));
+
+        return redirect('admin/pegawai/index');
+    }
+
     public function absensi()
     {
         $pegawai = Pegawai::all();

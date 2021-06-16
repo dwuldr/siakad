@@ -13,7 +13,7 @@
                 <h6 class="widget-user-desc">{{$pegawai->nip}}</h6>
               </div>
               <div class="table-responsive">
-                <table class = "table">
+                <table class="table table-bordered data-table">
                   <tbody>
                     <tr>
                       <th>Tempat, tanggal lahir :</th>

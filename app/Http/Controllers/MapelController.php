@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
-use App\Guru;
+use App\Pegawai;
 use App\Nilai;
 use App\Kelas;
 use App\Siswa;
@@ -33,7 +33,7 @@ class MapelController extends Controller
 
     public function listMapelByGuru()
     {
-        $mapel = Jadwal::where('jadwal.idGuru', session('id'))
+        $mapel = Jadwal::where('jadwal.idPegawai', session('id'))
             ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
             ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
             ->select('mapel.nama_mapel', 'jadwal.*', 'kelas.nama_kelas', 'kelas.idKelas')

@@ -7,12 +7,13 @@ use Auth;
 use App\Mapel;
 use App\Kelas;
 use App\Guru;
+use App\Semester;
 
 class Jadwal extends Model
 {
     protected $table = 'jadwal';
     protected $primaryKey = 'idJadwal';
-    protected $fillable = ['idMapel', 'idKelas', 'idPegawai', 'hari', 'jam_mulai', 'jam_selesai'];
+    protected $fillable = ['idMapel', 'idKelas', 'idSemester','idPegawai', 'hari', 'jam_mulai', 'jam_selesai'];
 
     public function jadwal()
     {
@@ -29,8 +30,13 @@ class Jadwal extends Model
         return $this->belongsTo('App\Kelas', 'idKelas', 'idKelas');
     }
 
-    public function guru()
+    public function pegawai()
     {
-        return $this->belongsTo('App\Guru', 'idPegawai', 'idPegawai');
+        return $this->belongsTo('App\Pegawai', 'idPegawai', 'idPegawai');
+    }
+
+    public function semester()
+    {
+        return $this->belongsTo('App\Semester', 'idSemester', 'idSemester');
     }
 }

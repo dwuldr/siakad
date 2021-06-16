@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 use App\Pegawai;
 use App\Kelas;
 use App\Siswa;
+use App\Jadwal;
+use App\Nilai;
+use PDF;
+use App\Exports\SiswaExport;
+use App\Imports\SiswaImport;
+use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
 {
@@ -49,6 +56,7 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        toast('Data Berhasil Ditambahkan!','success');
         $request->validate([
             'nama_siswa' => 'required',
             'nis' => 'required',
@@ -106,6 +114,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Alert::success('Data Berhasil Diubah', 'Success');
        Siswa::where('idSiswa', $id)
         ->update([
             'nis' => $request->nis,
@@ -130,6 +139,7 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
+        toast('Data Berhasil Dihapus!','success');
         $siswa = Siswa::find($id);
         $siswa->delete();
         return redirect('admin/siswa/index');
@@ -141,9 +151,45 @@ class SiswaController extends Controller
         return view('siswa.absen', compact('siswa'));
     }
 
-    public function jadwal()
+    public function lihatJadwal()
     {
-
+        $jadwal = Jadwal::all();
+        return view('siswa/jadwal/lihat-jadwal', compact('jadwal'));
     }
+
+    public function lihatNilai()
+    {
+        $nilai = Nilai::all();
+        return view('siswa/lihat-nilai', compact('nilai'));
+    }
+
+    public function cetakSiswa()
+    {
+           //dd([$tglawal, $tglakhir]);
+
+           $siswa = Siswa::all();
+           $pdf = PDF::loadview('admin/siswa/cetak-data-siswa',['siswa'=>$siswa]);
+        // return view('admin.Pegawai.cetak-data-pegawai', compact('cetakPegawai'));
+
+        $pdf->setPaper("a4", 'potrait');
+        return $pdf->stream();
+    }
+
+    public function siswaexport()
+    {
+        return Excel::download(new SiswaExport,'siswa.xlsx');
+    }
+
+    public function siswaimportexcel(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataSiswa', $namaFile);
+
+        Excel::import(new SiswaImport, public_path('/DataSiswa/', $namaFile));
+
+        return redirect('admin/siswa/index');
+    }
+
 }
 

@@ -70,7 +70,6 @@
                 </a>
                 <div id="nilai" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('nilai')}}">Nilai Mapel</a>
                         <a class="collapse-item" href="{{url('listmapel')}}">Nilai Raport</a>
                     </div>
                 </div>

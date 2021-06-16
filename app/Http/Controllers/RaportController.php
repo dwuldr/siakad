@@ -17,7 +17,12 @@ class RaportController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::leftJoin('pegawai', 'pegawai.idPegawai', 'kelas.idPegawai')->get();
+        $kelas = Kelas::all();
+        if(session('level')== 'Pegawai') {
+            return view('guru.raport.index', compact('kelas'));
+        } else {
+            return view('guru.raport.indexAdmin', compact('kelas'));
+        }
         return view('guru.raport.index', compact('kelas'));
     }
 

@@ -15,8 +15,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kelas</th>
-                                <th>Wali Kelas</th>
-                                <th>NIP</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -26,8 +24,6 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$item->nama_kelas}}</td>
-                                    <td>{{$item->nama_guru}}</td>
-                                    <td>{{$item->nip}}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{ url('/raport/kelas/'.$item->idKelas) }}">
                                             Detail</a>
