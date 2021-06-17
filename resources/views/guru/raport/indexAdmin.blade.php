@@ -25,7 +25,7 @@
                                     <td>{{$i++}}</td>
                                     <td>{{$item->nama_kelas}}</td>
                                     <td>
-                                        <a href="{{url('/raport/kelas/'.$item->idKelas)}}" class="btn btn-outline-primary"><i class="fas fa-search"></i></i>Detail</a>
+                                        <a href="{{url('/admin/raport/kelas/'.$item->idKelas)}}" class="btn btn-outline-primary"><i class="fas fa-search"></i></i>Detail</a>
 
                                     </td>
                                 </tr>

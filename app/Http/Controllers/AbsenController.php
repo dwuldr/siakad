@@ -112,39 +112,12 @@ class AbsenController extends Controller
         for ($i = 0; $i < count($request['idSiswa']); $i++) {
             $a = $request['idSiswa'][$i];
             // return $request['keterangan' . $a][0] ;
-            if ($request['keterangan' . $a][0] == 1) {
-                $absensiDetail['idAbsensi'] = $id->idAbsensi;
-                $absensiDetail['idSiswa'] = $request['idSiswa'][$i];
-                $absensiDetail['sakit'] = 0;
-                $absensiDetail['ijin'] = 0;
-                $absensiDetail['alpha'] = 0;
-                $absensiDetail['created_at'] = Date('Y-m-d H:i:s');
-                $absensiDetail['updated_at'] = Date('Y-m-d H:i:s');
-            } else if ($request['keterangan' . $a][0] == 2) {
-                $absensiDetail['idAbsensi'] = $id->idAbsensi;
-                $absensiDetail['idSiswa'] = $request['idSiswa'][$i];
-                $absensiDetail['sakit'] = 1;
-                $absensiDetail['ijin'] = 0;
-                $absensiDetail['alpha'] = 0;
-                $absensiDetail['created_at'] = Date('Y-m-d H:i:s');
-                $absensiDetail['updated_at'] = Date('Y-m-d H:i:s');
-            } else if ($request['keterangan' . $a][0] == 3) {
-                $absensiDetail['idAbsensi'] = $id->idAbsensi;
-                $absensiDetail['idSiswa'] = $request['idSiswa'][$i];
-                $absensiDetail['sakit'] = 0;
-                $absensiDetail['ijin'] = 1;
-                $absensiDetail['alpha'] = 0;
-                $absensiDetail['created_at'] = Date('Y-m-d H:i:s');
-                $absensiDetail['updated_at'] = Date('Y-m-d H:i:s');
-            } else if ($request['keterangan' . $a][0] == 4) {
-                $absensiDetail['idAbsensi'] = $id->idAbsensi;
-                $absensiDetail['idSiswa'] = $request['idSiswa'][$i];
-                $absensiDetail['sakit'] = 0;
-                $absensiDetail['ijin'] = 0;
-                $absensiDetail['alpha'] = 1;
-                $absensiDetail['created_at'] = Date('Y-m-d H:i:s');
-                $absensiDetail['updated_at'] = Date('Y-m-d H:i:s');
-            }
+            $absensiDetail['idAbsensi'] = $id->idAbsensi;
+            $absensiDetail['idSiswa'] = $request['idSiswa'][$i];
+            $absensiDetail['keterangan'] = $request['keterangan'][$i];
+            $absensiDetail['created_at'] = Date('Y-m-d H:i:s');
+            $absensiDetail['updated_at'] = Date('Y-m-d H:i:s');
+
             AppAbsensiDetail::create($absensiDetail);
         }
         // return $absensiDetail;
@@ -163,6 +136,7 @@ class AbsenController extends Controller
             ->select('siswa.nama_siswa', 'absensi_detail.*')
             ->where('absensi_detail.idAbsensi', $idAbsen)
             ->get();
+            
         return view('guru.absensi.listAbsensiDetail', compact('data'));
         return $data;
     }
@@ -177,10 +151,10 @@ class AbsenController extends Controller
         $mpl = Absensi::leftJoin('jadwal', 'jadwal.idJadwal', 'absensi.idJadwal')
             ->leftJoin('kelas', 'kelas.idKelas', 'jadwal.idKelas')
             ->leftJoin('mapel', 'mapel.idMapel', 'jadwal.idMapel')
-        ->first();
+            ->first();
 
         // return view('guru.absensi.printAbsenPdf', compact('data', 'mpl'));
-        $pdf = PDF::loadView('guru.absensi.printAbsenPdf', ['data'=>$data, 'mpl'=>$mpl]);
+        $pdf = PDF::loadView('guru.absensi.printAbsenPdf', ['data' => $data, 'mpl' => $mpl]);
         return $pdf->download('Detail_Absensi.pdf');
     }
 

@@ -29,7 +29,7 @@
                                     <td>{{$item->nis}}</td>
                                     <td>{{$item->nama_siswa}}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ url('/raport/cetak/'.$item->idSiswa) }}">
+                                        <a class="btn btn-success" href="{{ url('/admin/raport/cetak/'.$item->idSiswa) }}">
                                             Cetak Raport</a>
 
                                     </td>

@@ -88,6 +88,10 @@ Route::group(['middleware' =>['auth']], function() {
         Route::get('/listSiswa/{id}', 'NilaiController@listSiswa');
         Route::get('/detailNilai/{idMapel}', 'NilaiController@detailNilai');
         Route::post('/inputNilai', 'NilaiController@inputNilai');
+
+        Route::get('/raport/kelas', 'RaportController@index');
+        Route::get('/raport/kelas/{idKelas}', 'RaportController@show');
+        Route::get('/raport/cetak/{idSiswa}', 'RaportController@cetak');
     });
 
     Route::middleware(['siswa'])->group(function () {
@@ -96,9 +100,9 @@ Route::group(['middleware' =>['auth']], function() {
     });
 
     Route::middleware(['admin'])->group(function () {
-        Route::get('/raport/kelas', 'RaportController@index');
-        Route::get('/raport/kelas/{idKelas}', 'RaportController@show');
-        Route::get('/raport/cetak/{idSiswa}', 'RaportController@cetak');
+        Route::get('admin/raport/kelas', 'RaportController@index');
+        Route::get('admin/raport/kelas/{idKelas}', 'RaportController@show');
+        Route::get('admin/raport/cetak/{idSiswa}', 'RaportController@cetak');
 
 
         Route::get('admin/pegawai/index', 'PegawaiController@index');

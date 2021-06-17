@@ -1,16 +1,16 @@
 @extends('sbadmin/guru_master')
 @section('title', 'List Absensi')
 
-@section('content')
+@section('content')s
     <h1 class="h3 mb-4 text-gray-800">Data Siswa</h1>
     <div class="container-fluid">
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{url('/absen/save')}}" method="post">
+                <form action="{{ url('/absen/save') }}" method="post">
                     @csrf
-                    <input type="hidden" name="idJadwal" value="{{$idJadwal}}">
+                    <input type="hidden" name="idJadwal" value="{{ $idJadwal }}">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -18,10 +18,7 @@
                                     <th>No</th>
                                     <th>Tanggal</th>
                                     <th>Nama</th>
-                                    <th>Hadir</th>
-                                    <th>Sakit</th>
-                                    <th>Ijin</th>
-                                    <th>Alpha</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,36 +33,19 @@
                                         <td>{{ $item->nama_siswa }}</td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="1" class="form-check-input"
-                                                        type="radio">
-                                                </div>
+
+                                                <select name="keterangan[]" class="form-control" id="">
+                                                    <option value="">Pilih Keterangan</option>
+                                                    <option value="hadir">Hadir</option>
+                                                    <option value="sakit">Sakit</option>
+                                                    <option value="izin">Izin</option>
+                                                    <option value="alpha">Alpha</option>
+                                                </select>
+
+
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="2" class="form-check-input"
-                                                        type="radio">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="3" class="form-check-input"
-                                                        type="radio">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <div class="form-check">
-                                                    <input name="keterangan{{$item->idSiswa}}[]" id="keterangan{{$item->idSiswa}}" value="4" class="form-check-input"
-                                                        type="radio">
-                                                </div>
-                                            </div>
-                                        </td>
+
 
                                     </tr>
                                 @endforeach
