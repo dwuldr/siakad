@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>SIAKAD - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url ('vendor/sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet')}}" type="text/css">
@@ -37,8 +37,8 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h2 class="m-0 font-weight-bold text-primary">Login</h2>
-
+                                        <h3 class="m-0 font-weight-bold text-success">Sistem Informasi Akademik</h3>
+                                        <h4 class="m-0 font-weight-bold text-primary">Login</h4>
                                     </div>
                                     @if (session('message'))
                                     <div class="row">

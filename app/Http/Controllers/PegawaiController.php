@@ -26,7 +26,8 @@ class PegawaiController extends Controller
         return view('admin/pegawai/create', compact('pegawai'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         toast('Data Berhasil Ditambahkan!','success');
         $request->validate([
             'nama_guru' => 'required',
@@ -56,7 +57,7 @@ class PegawaiController extends Controller
 
     public function update(Request $request, $idPegawai)
     {
-        Alert::success('Data Berhasil Diubah', 'Success');
+        toast('Data Berhasil Diubah!','success');
         Pegawai::where('idPegawai', $idPegawai)
         ->update([
             'nip' => $request->nip,
@@ -106,11 +107,7 @@ class PegawaiController extends Controller
     public function pegawaiimportexcel(Request $request)
     {
         $file = $request->file('file');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataPegawai', $namaFile);
-
-        Excel::import(new PegawaiImport, public_path('/DataPegawai/', $namaFile));
-
+        Excel::import(new PegawaiImport, $file);
         return redirect('admin/pegawai/index');
     }
 

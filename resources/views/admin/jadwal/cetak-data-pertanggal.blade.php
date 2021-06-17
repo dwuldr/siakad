@@ -36,7 +36,7 @@
         </table>
         <hr>
 
-        <p align="center"><b>Laporan Log Book</b></p>
+        <p align="center"><b>Laporan Jadwal Pertanggal</b></p>
         <p align="center"> Periode Tanggal {{ Carbon\carbon::parse($tglawal)->translatedFormat("d F Y")}} s/d {{Carbon\carbon::parse($tglakhir)->translatedFormat("d F Y")}} </p>
 
         <table class="static" align="center" rules="all" border="1px" style="width: 96%;">

@@ -58,20 +58,21 @@ class SiswaController extends Controller
     {
         toast('Data Berhasil Ditambahkan!','success');
         $request->validate([
-            'nama_siswa' => 'required',
             'nis' => 'required',
+            'nama_siswa' => 'required',
+            'idkelas' => 'required',
             'telp' => 'required',
             'status_2' => 'required',
             ]);
 
             $siswa=new siswa;
+            $siswa->nis = $request->nis;
             $siswa->nama_siswa = $request->nama_siswa;
+            $siswa->idKelas = $request->idKelas;
+            $siswa->alamat = $request->alamat;
             $siswa->jk = $request->jk;
             $siswa->tmp_lahir = $request->tmp_lahir;
             $siswa->tgl_lahir = $request->tgl_lahir;
-            $siswa->nis = $request->nis;
-            $siswa->idKelas = $request->idKelas;
-            $siswa->alamat = $request->alamat;
             $siswa->telp = $request->telp;
             $siswa->nama_ortu = $request->nama_ortu;
             $siswa->status_2 = $request->status_2;
@@ -183,11 +184,7 @@ class SiswaController extends Controller
     public function siswaimportexcel(Request $request)
     {
         $file = $request->file('file');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataSiswa', $namaFile);
-
-        Excel::import(new SiswaImport, public_path('/DataSiswa/', $namaFile));
-
+        Excel::import(new SiswaImport, $file);
         return redirect('admin/siswa/index');
     }
 

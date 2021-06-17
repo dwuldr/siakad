@@ -136,7 +136,7 @@
                                     <li class="nav-item">
                                         <a href="courses.html">SEKOLAH</a>
                                         <ul class="sub-menu">
-                                            <li><a href="courses.html">GURU</a></li>
+                                            <li><a href="{{ url ('admin/guru/index')}}">GURU</a></li>
                                             <li><a href="courses-singel.html">SISWA</a></li>
                                         </ul>
                                     </li>
@@ -145,9 +145,6 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="teachers.html">KONTAK</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/register">PPDB ONLINE</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{url('login')}}">LOGIN</a>

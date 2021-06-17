@@ -3,8 +3,8 @@
 
 @section('content')
 
-@extends('sbadmin/guru_master')
-@section('title', 'Dashboard Guru')
+@extends('sbadmin/siswa_master')
+@section('title', 'Dashboard Siswa')
 
 @section('content')
 

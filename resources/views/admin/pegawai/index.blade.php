@@ -76,14 +76,15 @@
                         <form action="{{ url ('importPegawai')}}" method="post" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="form-group">
+                                    {{ method_field('PUT') }}
                                     {{ @csrf_field() }}
                                     <div class="form-group">
                                         <input type="file" name="file" required="required">
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
-                                    <button type="button" class="btn btn-primary">Import</button>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
+                                        <button type="submit" class="btn btn-primary">Import</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>

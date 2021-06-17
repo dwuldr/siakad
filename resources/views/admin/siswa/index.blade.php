@@ -14,8 +14,6 @@
                     class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</a>
                 <a href="{{ url('exportSiswa')}}" class="d-none d-sm-inline-block btn btn-sm btn btn-success"><i
                     class="fas fa-download fa-sm text-white-50"></i> Export Excel</a>
-                <button type="button" href="{{ url('importSiswa')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-download fa-sm text-white-50"></i>Import Data</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -74,14 +72,15 @@
                         <form action="{{ url ('importSiswa')}}" method="post" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="form-group">
+                                    {{method_field('PUT')}}
                                     {{ @csrf_field() }}
                                     <div class="form-group">
                                         <input type="file" name="file" required="required">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
-                                    <button type="button" class="btn btn-primary">Import</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Import</button>
                                 </div>
                             </div>
                         </form>

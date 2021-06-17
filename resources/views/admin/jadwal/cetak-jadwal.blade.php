@@ -30,7 +30,7 @@
         </div>
 
         <div class="input-group mb-3">
-            <a href="" onclick="this.href='/admin/jadwal/cetak-data-pertanggal/' + document.getElementById('tglawal').value +
+            <a href="" onclick="this.href='{{ url ('/admin/jadwal/cetak-data-pertanggal/')}}' + document.getElementById('tglawal').value +
             '/' +  document.getElementById('tglakhir').value" target="_blank"
             class="btn btn-primary col-md-12">Cetak Laporan Pertanggal<i class="fas fa-print"></i>
             </a>

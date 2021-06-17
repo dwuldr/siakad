@@ -110,7 +110,7 @@ Route::group(['middleware' =>['auth']], function() {
         Route::delete('admin/pegawai/destroy/{id}', 'PegawaiController@destroy');
         Route::get('admin/pegawai/cetak-data-pegawai', 'PegawaiController@cetakPegawai')->name('cetak-data-pegawai');
         Route::get('exportPegawai', 'PegawaiController@pegawaiexport')->name('exportPegawai');
-        Route::post('importPegawai', 'PegawaiController@pegawaiimportexcel')->name('importPegawai');
+        Route::put('importPegawai', 'PegawaiController@pegawaiimportexcel')->name('importPegawai');
 
 
         Route::get('admin/siswa/index', 'SiswaController@index');
@@ -122,7 +122,8 @@ Route::group(['middleware' =>['auth']], function() {
         Route::delete('admin/siswa/destroy/{id}', 'SiswaController@destroy');
         Route::get('admin/siswa/cetak-data-siswa', 'SiswaController@cetakSiswa')->name('cetak-data-siswa');
         Route::get('exportSiswa', 'SiswaController@siswaexport')->name('exportSiswa');
-        Route::post('importSiswa', 'SiswaController@siswaimportexcel')->name('importSiswa');
+        Route::put('importSiswa', 'SiswaController@siswaimportexcel')->name('importSiswa');
+
 
         Route::get('admin/kelas/index', 'KelasController@index');
         Route::get('admin/kelas/create', 'KelasController@create');
@@ -176,5 +177,15 @@ Route::group(['middleware' =>['auth']], function() {
         Route::patch('admin/mapel/{id}', 'MapelController@update');
         Route::get('admin/mapel/show/{id}', 'MapelController@show');
         Route::delete('admin/mapel/destroy/{id}', 'MapelController@destroy');
+
+        Route::get("admin/users/tambah", ["uses" => "UserController@tambah", "as" => "tambah"]);
+        Route::post("admin/users/simpan", ["uses" => "UserController@simpan", "as" => "simpan",]);
+        Route::post("admin/users/edit",  "UserController@edit");
+        Route::post("admin/users/create",  ["uses" => "UserController@create", "as" => "create",]);
+        Route::get("admin/users/search", "UserController@search");
+        Route::get("admin/users/all", "UserController@index");
+        Route::get("admin/users/index", "UserController@index");
+        Route::get("admin/users/{idUsers}/delete", "UserController@delete");
+        Route::get("/user/{idUsers}/update", "UserController@restore");
     });
 });

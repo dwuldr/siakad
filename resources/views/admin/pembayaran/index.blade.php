@@ -29,12 +29,12 @@
                             @foreach ($pembayaran as $row)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$row->nama_siswa}}</td>
+                                    <td>{{$row->siswa->nama_siswa}}</td>
                                     <td>{{$row->tgl}}</td>
                                     <td>{{$row->jenis_bayar}}</td>
                                     <td>{{$row->jumlah_bayar}}</td>
                                     <td>
-                                        <a class="btn btn-outline--warning" href="{{url('admin/pembayaran/edit/'.$row->idPembayaran)}}">
+                                        <a class="btn btn-outline-warning" href="{{url('admin/pembayaran/edit/'.$row->idPembayaran)}}">
                                             <i class="fa fa-edit"></i></a>
 
                                         <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"

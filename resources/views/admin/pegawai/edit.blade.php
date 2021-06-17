@@ -88,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{url('admin/pegawai/index')}}" class="btn btn-secondary ">Kembali</a>
 
                 </div>

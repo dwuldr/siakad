@@ -14,6 +14,7 @@ class PegawaiImport implements ToModel
     */
     public function model(array $row)
     {
+        $now = date('Y-m-d H:i:s');
         return new Pegawai([
             'nip' => $row[1],
             'nama_guru' => $row[2],

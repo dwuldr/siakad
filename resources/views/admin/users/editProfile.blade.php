@@ -31,7 +31,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Edit</button>
-        <a href="/users" class="btn btn-secondary btn-sm">Kembali</a>
+        <a href="{{('admin/users/index')}}" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
 @endsection
 

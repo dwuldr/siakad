@@ -70,10 +70,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/pegawai/index')}}">Data Pegawai</a>
                         <a class="collapse-item" href="{{url('admin/siswa/index')}}">Data Siswa</a>
-                        <a class="collapse-item" href="{{url('admin/kelas/index')}}">Data Kelas</a>
-                        <a class="collapse-item" href="{{url('admin/jadwal/index')}}">Data Jadwal Pelajaran</a>
-                        <a class="collapse-item" href="{{url('admin/mapel/index')}}">Data Mata Pelajaran</a>
                         <a class="collapse-item" href="{{url('admin/semester/index')}}">Data Tahun Akademik</a>
+                        <a class="collapse-item" href="{{url('admin/kelas/index')}}">Data Kelas</a>
+                        <a class="collapse-item" href="{{url('admin/mapel/index')}}">Data Mapel</a>
+                        <a class="collapse-item" href="{{url('admin/jadwal/index')}}">Data Jadwal</a>
                     </div>
                 </div>
             </li>
@@ -81,7 +81,7 @@
 
             <!-- Heading -->
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/raport/kelas')}}">
+                <a class="nav-link" href="{{url('/admin/raport/kelas')}}">
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Raport Siswa</span></a>
             </li>
@@ -101,7 +101,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/users">
+                <a class="nav-link" href="{{url('admin/users/index')}}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User</span>
                 </a>

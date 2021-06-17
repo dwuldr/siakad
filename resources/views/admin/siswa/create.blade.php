@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Tambah</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{url('admin/siswa/index')}}" class="btn btn-secondary ">Kembali</a>
 
         </div>
